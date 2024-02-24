@@ -1,0 +1,8 @@
+#pragma once
+
+#include "CoreMinimal.h"
+
+
+DLGAMEPLAYCORE_API DECLARE_LOG_CATEGORY_EXTERN(LogDLGameplayCore, Log, All);
+
+DLGAMEPLAYCORE_API DECLARE_LOG_CATEGORY_EXTERN(LogDLGameplayCoreAI, Log, All);
