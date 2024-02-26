@@ -14,13 +14,13 @@ int32 SSlateSlice::OnPaint(const FPaintArgs& Args, const FGeometry& AllottedGeom
 	FSlateWindowElementList& OutDrawElements, int32 LayerId, const FWidgetStyle& InWidgetStyle,
 	bool bParentEnabled) const
 {
-	const FVector2D Pos = AllottedGeometry.GetAbsolutePosition();
-	const FVector2D Size = AllottedGeometry.GetAbsoluteSize();
-	const FVector2D Center = Pos + 0.5 * Size;
+	const FVector2f Pos = AllottedGeometry.GetAbsolutePosition();
+	const FVector2f Size = AllottedGeometry.GetAbsoluteSize();
+	const FVector2f Center = Pos + 0.5 * Size;
 	const float Radius = FMath::Min(Size.X, Size.Y) * 0.5f;
 
 	const FSlateBrush* SlateBrush = Brush.GetImage().Get();
-	FLinearColor LinearColor = ColorAndOpacity.Get() * InWidgetStyle.GetColorAndOpacityTint() * SlateBrush->GetTint(InWidgetStyle);
+	FLinearColor LinearColor = GetColorAndOpacity() * InWidgetStyle.GetColorAndOpacityTint() * SlateBrush->GetTint(InWidgetStyle);
 	FColor FinalColorAndOpacity = LinearColor.ToFColor(true);
 
 	const int NumSegments = FMath::RoundToInt(ArcSize / 10.0f);
@@ -38,8 +38,8 @@ int32 SSlateSlice::OnPaint(const FPaintArgs& Args, const FGeometry& AllottedGeom
 	for (int i = 0; i < NumSegments + 2; ++i)
 	{
 		const float CurrentAngle = FMath::DegreesToRadians(ArcSize * i / NumSegments + Angle);
-		const FVector2D EdgeDirection(FMath::Cos(CurrentAngle), FMath::Sin(CurrentAngle));
-		const FVector2D OuterEdge(Radius*EdgeDirection);
+		const FVector2f EdgeDirection(FMath::Cos(CurrentAngle), FMath::Sin(CurrentAngle));
+		const FVector2f OuterEdge(Radius*EdgeDirection);
 
 		Vertices.AddZeroed();
 		FSlateVertex& OuterVert = Vertices.Last();

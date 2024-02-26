@@ -160,7 +160,7 @@ public:
 	/** Checks whether or not the given Animation Track Name is contained within the Animation Sequence */
 	static bool IsValidRawAnimationTrackName(const UAnimSequence* AnimationSequence, const FName TrackName, const FReferenceSkeleton& RefSkeleton);
 
-	static const FRawAnimSequenceTrack& GetRawAnimationTrackByName(const UAnimSequence* AnimationSequence, const FName TrackName, const USkeletalMesh* PreviewMesh = nullptr);
+	//static const FRawAnimSequenceTrack& GetRawAnimationTrackByName(const UAnimSequence* AnimationSequence, const FName TrackName, const USkeletalMesh* PreviewMesh = nullptr);
 
 	UFUNCTION(BlueprintPure, Category = "Animation|Tool")
 		static int32 GetBoneIndex(const UAnimSequence* AnimationSequence, FName BoneName, const USkeletalMesh* PreviewMesh = nullptr);

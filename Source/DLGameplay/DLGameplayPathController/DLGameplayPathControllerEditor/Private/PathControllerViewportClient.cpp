@@ -19,7 +19,7 @@ FPathControllerViewportClient::FPathControllerViewportClient(
 	  , PathControllerEditor(InTargetSelectorEditorPtr)
 {
 	bNeedsInvalidateHitProxy = true;
-	bOwnsModeTools = false;
+	//bOwnsModeTools = false;
 
 	WidgetCoordSystem = COORD_Local;
 
@@ -216,7 +216,7 @@ void FPathControllerViewportClient::ProcessClick(FSceneView& View, HHitProxy* Hi
 		GUnrealEd->ComponentVisManager.HandleClick(this, HitProxy, Click);
 
 		PathControllerEditor.Pin()->OnSelectSpline();
-		SetWidgetMode(FWidget::EWidgetMode::WM_Translate);
+		SetWidgetMode(UE::Widget::EWidgetMode::WM_Translate);
 		EngineShowFlags.SetSelectionOutline(true);
 	}
 	else
@@ -245,13 +245,13 @@ void FPathControllerViewportClient::SelectActor(AActor* NewActor)
 	if (SelectedActor.IsValid())
 	{
 		GEditor->SelectActor(NewActor, true, false);
-		SetWidgetMode(FWidget::EWidgetMode::WM_Translate);
+		SetWidgetMode(UE::Widget::EWidgetMode::WM_Translate);
 		EngineShowFlags.SetSelectionOutline(true);
 	}
 	else
 	{
 		GEditor->SelectActor(NewActor, true, false);
-		SetWidgetMode(FWidget::EWidgetMode::WM_None);
+		SetWidgetMode(UE::Widget::EWidgetMode::WM_None);
 		EngineShowFlags.SetSelectionOutline(true);
 	}
 }

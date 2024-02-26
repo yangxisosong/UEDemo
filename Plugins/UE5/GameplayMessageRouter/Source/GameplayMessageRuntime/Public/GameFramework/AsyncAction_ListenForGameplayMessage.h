@@ -5,7 +5,7 @@
 #include "Kismet/BlueprintAsyncActionBase.h"
 #include "GameplayMessageSubsystem.h"
 #include "GameplayMessageTypes2.h"
-#include "CancellableAsyncAction.h"
+#include "Engine/CancellableAsyncAction.h"
 
 #include "AsyncAction_ListenForGameplayMessage.generated.h"
 

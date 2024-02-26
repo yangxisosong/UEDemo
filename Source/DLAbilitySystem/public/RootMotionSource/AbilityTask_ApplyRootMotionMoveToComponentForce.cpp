@@ -10,7 +10,7 @@
 #include "AbilitySystemGlobals.h"
 #include "Net/UnrealNetwork.h"
 #include "Abilities/GameplayAbilityTargetTypes.h"
-
+#include "AbilitySystemLog.h"
 
 
 UAbilityTask_ApplyRootMotionMoveToComponentForce* UAbilityTask_ApplyRootMotionMoveToComponentForce::
@@ -238,7 +238,7 @@ void UAbilityTask_ApplyRootMotionMoveToComponentForce::SharedInitAndApply()
 
 			if (Ability)
 			{
-				Ability->SetMovementSyncPoint(ForceName);
+				//Ability->SetMovementSyncPoint(ForceName);
 			}
 		}
 	}

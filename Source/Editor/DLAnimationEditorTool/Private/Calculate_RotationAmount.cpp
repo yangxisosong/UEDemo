@@ -2,7 +2,7 @@
 
 
 #include "Calculate_RotationAmount.h"
-#include "AnimationModifiers/Public/AnimationBlueprintLibrary.h"
+#include "AnimationBlueprintLibrary.h"
 
 void UCalculate_RotationAmount::OnApply_Implementation(UAnimSequence* AnimationSequence)
 {

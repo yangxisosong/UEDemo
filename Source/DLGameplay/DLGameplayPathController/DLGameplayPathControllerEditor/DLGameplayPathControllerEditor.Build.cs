@@ -22,7 +22,7 @@ public class DLGameplayPathControllerEditor : ModuleRules
             "EditorStyle",
             "AdvancedPreviewScene",
             "ComponentVisualizers",
-            "Kismet"
+            "Kismet",
         });
 
         // Project Module 

@@ -24,9 +24,9 @@ public:
 		this->ChildSlot
 			[
 				SNew(SBorder)
-				.BorderImage(FEditorStyle::GetBrush("NoBorder"))
-			.ColorAndOpacity(this, &SViewportToolBar::OnGetColorAndOpacity)
-			.ForegroundColor(FEditorStyle::GetSlateColor(DefaultForegroundName))
+				.BorderImage(FAppStyle::GetBrush("NoBorder"))
+			.ColorAndOpacity(this, &SViewportToolBar::GetColorAndOpacity)
+			.ForegroundColor(FAppStyle::GetSlateColor(DefaultForegroundName))
 			[
 				SNew(SHorizontalBox)
 				+ SHorizontalBox::Slot()
@@ -111,7 +111,7 @@ public:
 			return GetCameraMenuLabelIconFromViewportType(EditorViewport.Pin()->GetViewportClient()->GetViewportType());
 		}
 
-		return FEditorStyle::GetBrush(NAME_None);
+		return FAppStyle::GetBrush(NAME_None);
 	}
 
 	TSharedRef<SWidget> GenerateCameraMenu() const
@@ -188,7 +188,7 @@ public:
 			}
 		}
 
-		return FEditorStyle::GetBrush(Icon);
+		return FAppStyle::GetBrush(Icon);
 	}
 
 	TSharedRef<SWidget> GenerateViewMenu() const

@@ -88,7 +88,7 @@ void FDLUnitSelectorFilterDefaultSpec::Define()
 			It(TEXT("应该在没有指定 RequirementTags, 通过 TargetActor"), [this]
 			{
 				FHitResult Ret;
-				Ret.Actor = TestData->TargetActor;
+				Ret.HitObjectHandle = TestData->TargetActor;
 				
 				const bool Pass = !TestData->SelectorFilter->FilterHitUnit(TestData->Context, Ret);
 				TestTrue(TEXT("应该能够通过过滤器"), Pass);
@@ -97,7 +97,7 @@ void FDLUnitSelectorFilterDefaultSpec::Define()
 			It(TEXT("应该在指定 RequirementTags IgnoreTags->TagTestC  RequireTags->TagTestB 通过 TargetActor"), [this]
 			{
 				FHitResult Ret;
-				Ret.Actor = TestData->TargetActor;
+				Ret.HitObjectHandle = TestData->TargetActor;
 
 				TestData->SelectorFilter->FilterData.RequirementTags.IgnoreTags = TagTestC.GetSingleTagContainer();
 				TestData->SelectorFilter->FilterData.RequirementTags.RequireTags = TagTestB.GetSingleTagContainer();

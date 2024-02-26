@@ -370,7 +370,7 @@ bool UDLAnimationLibrary::IsMontagePlayable(const UAnimInstance* AnimIns, const 
 	}
 
 	//检测动画时长是否有效
-	if (FMath::IsNearlyZero(AnimMontage->SequenceLength))
+	if (FMath::IsNearlyZero(AnimMontage->GetPlayLength()))
 	{
 		UE_LOG(LogTemp, Log, TEXT("<UDLAnimationLibrary::IsMontagePlayable> 蒙太奇%s时长为0")
 			, *AnimMontage->GetName());

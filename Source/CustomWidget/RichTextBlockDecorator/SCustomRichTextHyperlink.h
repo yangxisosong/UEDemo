@@ -79,7 +79,7 @@ public:
 	virtual FReply OnMouseButtonDown( const FGeometry& MyGeometry, const FPointerEvent& MouseEvent ) override
 	{
 		FReply Reply = SHyperlink::OnMouseButtonDown( MyGeometry, MouseEvent );
-		ViewModel->SetIsPressed( bIsPressed );
+		ViewModel->SetIsPressed( true );
 
 		return Reply;
 	}
@@ -87,7 +87,7 @@ public:
 	virtual FReply OnMouseButtonUp( const FGeometry& MyGeometry, const FPointerEvent& MouseEvent ) override
 	{
 		FReply Reply = SHyperlink::OnMouseButtonUp( MyGeometry, MouseEvent );
-		ViewModel->SetIsPressed( bIsPressed );
+		ViewModel->SetIsPressed( false );
 		OnNavigateUrl(Url.Get());
 
 		return Reply;
@@ -108,12 +108,12 @@ public:
 		HoveredCallback.ExecuteIfBound(ishovered);
 	}
 
-	virtual bool IsHovered() const override
+	virtual bool IsHovered() const
 	{
 		return ViewModel->IsHovered();
 	}
 
-	virtual bool IsPressed() const override
+	virtual bool IsPressed() const
 	{
 		return ViewModel->IsPressed();
 	}

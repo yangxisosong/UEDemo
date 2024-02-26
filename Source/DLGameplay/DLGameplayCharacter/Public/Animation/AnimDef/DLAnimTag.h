@@ -16,37 +16,37 @@ namespace EAnimTagDef
 	namespace ECharacterAnimState
 	{
 		/*待机*/
-		DECLARE_ANIM_TAG(Animation.CharacterAnimState, Idle);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(Idle);
 		/*行走(方向)*/
-		DECLARE_ANIM_TAG(Animation.CharacterAnimState, WalkDirection);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(WalkDirection);
 		/*行走（转身）*/
-		DECLARE_ANIM_TAG(Animation.CharacterAnimState, Walk_Turn);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(Walk_Turn);
 		/*行走(停止)*/
-		DECLARE_ANIM_TAG(Animation.CharacterAnimState, Walk_Stop);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(Walk_Stop);
 		/*锁定行走(方向)*/
-		DECLARE_ANIM_TAG(Animation.CharacterAnimState, Locked_Walk_Direction);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(Locked_Walk_Direction);
 		/*小跑（方向）*/
-		DECLARE_ANIM_TAG(Animation.CharacterAnimState, Jog_Direction);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(Jog_Direction);
 		/*小跑（转身）*/
-		DECLARE_ANIM_TAG(Animation.CharacterAnimState, Jog_Turn);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(Jog_Turn);
 		/*小跑（停止）*/
-		DECLARE_ANIM_TAG(Animation.CharacterAnimState, Jog_Stop);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(Jog_Stop);
 		/*锁定小跑(方向)*/
-		DECLARE_ANIM_TAG(Animation.CharacterAnimState, Locked_Jog_Direction);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(Locked_Jog_Direction);
 		/*加速（方向）*/
-		DECLARE_ANIM_TAG(Animation.CharacterAnimState, Accelerate);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(Accelerate);
 		/*疾跑（方向）*/
-		DECLARE_ANIM_TAG(Animation.CharacterAnimState, Sprint_Direction);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(Sprint_Direction);
 		/*疾跑（转身）*/
-		DECLARE_ANIM_TAG(Animation.CharacterAnimState, Sprint_Turn);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(Sprint_Turn);
 		/*疾跑（停止）*/
-		DECLARE_ANIM_TAG(Animation.CharacterAnimState, Sprint_Stop);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(Sprint_Stop);
 		/*翻滚（方向）*/
-		DECLARE_ANIM_TAG(Animation.CharacterAnimState, Roll_Direction);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(Roll_Direction);
 		/*翻滚后（转身）*/
-		DECLARE_ANIM_TAG(Animation.CharacterAnimState, After_Roll_Then_Turn);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(After_Roll_Then_Turn);
 		/*后撤*/
-		DECLARE_ANIM_TAG(Animation.CharacterAnimState, Retreat);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(Retreat);
 	}
 
 	//动画名字
@@ -65,83 +65,83 @@ namespace EAnimTagDef
 
 	namespace EBoneName
 	{
-		DECLARE_ANIM_TAG(BoneName, Root);
-		DECLARE_ANIM_TAG(BoneName, IK_Hand_Root);
-		DECLARE_ANIM_TAG(BoneName, ik_hand_r);
-		DECLARE_ANIM_TAG(BoneName, ik_hand_l);
-		DECLARE_ANIM_TAG(BoneName, IK_Foot_Root);
-		DECLARE_ANIM_TAG(BoneName, ik_foot_r);
-		DECLARE_ANIM_TAG(BoneName, ik_foot_l);
-		DECLARE_ANIM_TAG(BoneName, Bip001);
-		DECLARE_ANIM_TAG(BoneName, Pelvis);
-		DECLARE_ANIM_TAG(BoneName, Spine);
-		DECLARE_ANIM_TAG(BoneName, Spine1);
-		DECLARE_ANIM_TAG(BoneName, Spine2);
-		DECLARE_ANIM_TAG(BoneName, Neck);
-		DECLARE_ANIM_TAG(BoneName, Head);
-		DECLARE_ANIM_TAG(BoneName, L_Clavicle);
-		DECLARE_ANIM_TAG(BoneName, L_UpperArm);
-		DECLARE_ANIM_TAG(BoneName, L_Forearm);
-		DECLARE_ANIM_TAG(BoneName, L_Hand);
-		DECLARE_ANIM_TAG(BoneName, L_Finger0);
-		DECLARE_ANIM_TAG(BoneName, L_Finger01);
-		DECLARE_ANIM_TAG(BoneName, L_Finger02);
-		DECLARE_ANIM_TAG(BoneName, L_Finger1);
-		DECLARE_ANIM_TAG(BoneName, L_Finger11);
-		DECLARE_ANIM_TAG(BoneName, L_Finger12);
-		DECLARE_ANIM_TAG(BoneName, L_Finger2);
-		DECLARE_ANIM_TAG(BoneName, L_Finger21);
-		DECLARE_ANIM_TAG(BoneName, L_Finger22);
-		DECLARE_ANIM_TAG(BoneName, L_Finger3);
-		DECLARE_ANIM_TAG(BoneName, L_Finger31);
-		DECLARE_ANIM_TAG(BoneName, L_Finger32);
-		DECLARE_ANIM_TAG(BoneName, L_Finger4);
-		DECLARE_ANIM_TAG(BoneName, L_Finger41);
-		DECLARE_ANIM_TAG(BoneName, L_Finger42);
-		DECLARE_ANIM_TAG(BoneName, L_ForeTwist);
-		DECLARE_ANIM_TAG(BoneName, L_ForeTwist1);
-		DECLARE_ANIM_TAG(BoneName, LUpArmTwist);
-		DECLARE_ANIM_TAG(BoneName, LUpArmTwist1);
-		DECLARE_ANIM_TAG(BoneName, R_Clavicle);
-		DECLARE_ANIM_TAG(BoneName, R_UpperArm);
-		DECLARE_ANIM_TAG(BoneName, R_Forearm);
-		DECLARE_ANIM_TAG(BoneName, R_Hand);
-		DECLARE_ANIM_TAG(BoneName, R_Finger0);
-		DECLARE_ANIM_TAG(BoneName, R_Finger01);
-		DECLARE_ANIM_TAG(BoneName, R_Finger02);
-		DECLARE_ANIM_TAG(BoneName, R_Finger1);
-		DECLARE_ANIM_TAG(BoneName, R_Finger11);
-		DECLARE_ANIM_TAG(BoneName, R_Finger12);
-		DECLARE_ANIM_TAG(BoneName, R_Finger2);
-		DECLARE_ANIM_TAG(BoneName, R_Finger21);
-		DECLARE_ANIM_TAG(BoneName, R_Finger22);
-		DECLARE_ANIM_TAG(BoneName, R_Finger3);
-		DECLARE_ANIM_TAG(BoneName, R_Finger31);
-		DECLARE_ANIM_TAG(BoneName, R_Finger32);
-		DECLARE_ANIM_TAG(BoneName, R_Finger4);
-		DECLARE_ANIM_TAG(BoneName, R_Finger41);
-		DECLARE_ANIM_TAG(BoneName, R_Finger42);
-		DECLARE_ANIM_TAG(BoneName, R_ForeTwist);
-		DECLARE_ANIM_TAG(BoneName, R_ForeTwist1);
-		DECLARE_ANIM_TAG(BoneName, RUpArmTwist);
-		DECLARE_ANIM_TAG(BoneName, RUpArmTwist1);
-		DECLARE_ANIM_TAG(BoneName, Breast_L);
-		DECLARE_ANIM_TAG(BoneName, Breast_R);
-		DECLARE_ANIM_TAG(BoneName, L_Thigh);
-		DECLARE_ANIM_TAG(BoneName, L_Calf);
-		DECLARE_ANIM_TAG(BoneName, L_Foot);
-		DECLARE_ANIM_TAG(BoneName, L_Toe0);
-		DECLARE_ANIM_TAG(BoneName, SkinMend_Calf_R01);
-		DECLARE_ANIM_TAG(BoneName, SkinMend_Knee_L);
-		DECLARE_ANIM_TAG(BoneName, R_Thigh);
-		DECLARE_ANIM_TAG(BoneName, R_Calf);
-		DECLARE_ANIM_TAG(BoneName, R_Foot);
-		DECLARE_ANIM_TAG(BoneName, R_Toe0);
-		DECLARE_ANIM_TAG(BoneName, SkinMend_Calf_L01);
-		DECLARE_ANIM_TAG(BoneName, SkinMend_Knee_R);
-		DECLARE_ANIM_TAG(BoneName, Stretch_Pelvis_R);
-		DECLARE_ANIM_TAG(BoneName, Stretch_Pelvis_L);
-		DECLARE_ANIM_TAG(BoneName, VB_FootTarget_L);
-		DECLARE_ANIM_TAG(BoneName, VB_FootTarget_R);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(Root);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(IK_Hand_Root);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(ik_hand_r);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(ik_hand_l);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(IK_Foot_Root);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(ik_foot_r);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(ik_foot_l);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(Bip001);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(Pelvis);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(Spine);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(Spine1);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(Spine2);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(Neck);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(Head);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(L_Clavicle);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(L_UpperArm);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(L_Forearm);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(L_Hand);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(L_Finger0);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(L_Finger01);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(L_Finger02);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(L_Finger1);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(L_Finger11);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(L_Finger12);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(L_Finger2);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(L_Finger21);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(L_Finger22);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(L_Finger3);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(L_Finger31);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(L_Finger32);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(L_Finger4);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(L_Finger41);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(L_Finger42);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(L_ForeTwist);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(L_ForeTwist1);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(LUpArmTwist);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(LUpArmTwist1);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(R_Clavicle);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(R_UpperArm);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(R_Forearm);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(R_Hand);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(R_Finger0);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(R_Finger01);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(R_Finger02);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(R_Finger1);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(R_Finger11);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(R_Finger12);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(R_Finger2);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(R_Finger21);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(R_Finger22);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(R_Finger3);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(R_Finger31);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(R_Finger32);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(R_Finger4);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(R_Finger41);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(R_Finger42);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(R_ForeTwist);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(R_ForeTwist1);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(RUpArmTwist);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(RUpArmTwist1);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(Breast_L);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(Breast_R);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(L_Thigh);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(L_Calf);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(L_Foot);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(L_Toe0);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(SkinMend_Calf_R01);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(SkinMend_Knee_L);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(R_Thigh);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(R_Calf);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(R_Foot);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(R_Toe0);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(SkinMend_Calf_L01);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(SkinMend_Knee_R);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(Stretch_Pelvis_R);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(Stretch_Pelvis_L);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(VB_FootTarget_L);
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(VB_FootTarget_R);
 	}
 }

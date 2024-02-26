@@ -3,7 +3,7 @@
 
 #include "GenerareSlowlyStopTimeCurve.h"
 
-#include "AnimationModifiers/Public/AnimationBlueprintLibrary.h"
+#include "AnimationBlueprintLibrary.h"
 
 void UGenerateSlowlyStopTimeCurve::OnApply_Implementation(UAnimSequence* AnimationSequence)
 {

@@ -2,7 +2,7 @@
 
 
 #include "Copy_Curves.h"
-#include "AnimationModifiers/Public/AnimationBlueprintLibrary.h"
+#include "AnimationBlueprintLibrary.h"
 
 
 void UCopy_Curves::OnApply_Implementation(UAnimSequence* AnimationSequence)

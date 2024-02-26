@@ -134,8 +134,8 @@ void UDLTitanApeAnimInstance::TurnInPlaceCheck(float DeltaSeconds)
 
 	ElapsedDelayTime += DeltaSeconds;
 	const float ClampedAimAngle = FMath::GetMappedRangeValueClamped(
-		{ CurTurnInPlaceConfig.TurnCheckMinAngle, 180.0f }
-		, { CurTurnInPlaceConfig.MinAngleDelay,CurTurnInPlaceConfig.MaxAngleDelay }
+		FVector2f{ CurTurnInPlaceConfig.TurnCheckMinAngle, 180.0f }
+		, FVector2f{ CurTurnInPlaceConfig.MinAngleDelay,CurTurnInPlaceConfig.MaxAngleDelay }
 	, AimingValues.AimingAngle.X);
 
 	// 检查ElapsedDelayTime是否超过了设置的延迟时间，如果是，则触发转身。

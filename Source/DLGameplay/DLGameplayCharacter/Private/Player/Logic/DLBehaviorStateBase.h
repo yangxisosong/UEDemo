@@ -1,7 +1,6 @@
 // ReSharper disable CppMemberFunctionMayBeConst
 #pragma once
 
-
 #include "CoreMinimal.h"
 #include "DLPlayerInputCmd.h"
 #include "GameplayTagContainer.h"
@@ -15,19 +14,16 @@
 DECLARE_LOG_CATEGORY_EXTERN(LogDLBehaviorStateBase, Log, All);
 DEFINE_LOG_CATEGORY(LogDLBehaviorStateBase);
 
-
-
 UCLASS()
-class UDLBehaviorStateBase
-	: public USMStateInstance
+class UDLBehaviorStateBase: public USMStateInstance
 {
 	GENERATED_BODY()
 
 protected:
 
-	virtual void OnStateBegin_Implementation() override
+	virtual void OnStateBegin_Implementation()
 	{
-		Super::OnStateBegin_Implementation();
+		//Super::OnStateBegin_Implementation();
 
 
 		if (MarkStateTags.Num() > 0)
@@ -50,9 +46,9 @@ protected:
 		}
 	}
 
-	virtual void OnStateEnd_Implementation() override
+	virtual void OnStateEnd_Implementation()
 	{
-		Super::OnStateEnd_Implementation();
+		//Super::OnStateEnd_Implementation();
 
 		if (InputCmdSys)
 		{
@@ -87,14 +83,14 @@ protected:
 		}
 	}
 
-	virtual void OnStateUpdate_Implementation(const float DeltaSeconds) override
+	virtual void OnStateUpdate_Implementation(const float DeltaSeconds)
 	{
-		Super::OnStateUpdate_Implementation(DeltaSeconds);
+		//Super::OnStateUpdate_Implementation(DeltaSeconds);
 	}
 
-	virtual void OnStateInitialized_Implementation() override
+	virtual void OnStateInitialized_Implementation()
 	{
-		Super::OnStateInitialized_Implementation();
+		//Super::OnStateInitialized_Implementation();
 
 		PlayerController = Cast<ADLPlayerController>(GetContext());
 
@@ -175,7 +171,7 @@ public:
 		}
 	}
 
-	virtual void OnStateShutdown_Implementation() override
+	virtual void OnStateShutdown_Implementation()
 	{
 		if (ASC)
 		{
@@ -183,7 +179,7 @@ public:
 			ASC->OnAbilityEnded.Remove(EndHandle);
 		}
 
-		Super::OnStateShutdown_Implementation();
+		//Super::OnStateShutdown_Implementation();
 	}
 
 protected:

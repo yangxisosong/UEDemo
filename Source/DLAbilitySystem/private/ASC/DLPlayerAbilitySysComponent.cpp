@@ -334,8 +334,9 @@ void UDLPlayerAbilitySysComponent::OnPlayerControllerSet()
 {
 	Super::OnPlayerControllerSet();
 
-	const FGameplayAbilityInputBinds BindsInfo({}, {}, TEXT("EPrimaryInputID"));
-
+	FTopLevelAssetPath temp;
+	//const FGameplayAbilityInputBinds BindsInfo({}, {}, TEXT("EPrimaryInputID"));
+	const FGameplayAbilityInputBinds BindsInfo({}, {}, temp);
 	if (AbilityActorInfo->IsLocallyControlledPlayer())
 	{
 		if (AbilityActorInfo->PlayerController.IsValid())

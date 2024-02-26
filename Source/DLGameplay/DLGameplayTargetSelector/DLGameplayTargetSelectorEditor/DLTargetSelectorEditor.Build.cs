@@ -23,8 +23,7 @@ public class DLTargetSelectorEditor : ModuleRules
             "AdvancedPreviewScene",
             "RenderCore",
             "RHI",
-            "Unrealed",
-            "DLGamePlayCharacter",
+            "DLGameplayCharacter",
             "EditorStyle"
 
         });

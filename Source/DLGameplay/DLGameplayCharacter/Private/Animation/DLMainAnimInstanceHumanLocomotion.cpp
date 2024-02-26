@@ -14,6 +14,24 @@
 #include "GameFramework/Character.h"
 #include "GameFramework/CharacterMovementComponent.h"
 
+UE_DEFINE_GAMEPLAY_TAG(EAnimTagDef::ECharacterAnimState::WalkDirection, "Animation.CharacterAnimState");
+UE_DEFINE_GAMEPLAY_TAG(EAnimTagDef::ECharacterAnimState::Walk_Turn, "Animation.CharacterAnimState");
+UE_DEFINE_GAMEPLAY_TAG(EAnimTagDef::ECharacterAnimState::Walk_Stop, "Animation.CharacterAnimState");
+UE_DEFINE_GAMEPLAY_TAG(EAnimTagDef::ECharacterAnimState::Locked_Walk_Direction, "Animation.CharacterAnimState");
+UE_DEFINE_GAMEPLAY_TAG(EAnimTagDef::ECharacterAnimState::Jog_Direction, "Animation.CharacterAnimState");
+UE_DEFINE_GAMEPLAY_TAG(EAnimTagDef::ECharacterAnimState::Jog_Turn, "Animation.CharacterAnimState");
+UE_DEFINE_GAMEPLAY_TAG(EAnimTagDef::ECharacterAnimState::Jog_Stop, "Animation.CharacterAnimState");
+UE_DEFINE_GAMEPLAY_TAG(EAnimTagDef::ECharacterAnimState::Locked_Jog_Direction, "Animation.CharacterAnimState");
+UE_DEFINE_GAMEPLAY_TAG(EAnimTagDef::ECharacterAnimState::Accelerate, "Animation.CharacterAnimState");
+UE_DEFINE_GAMEPLAY_TAG(EAnimTagDef::ECharacterAnimState::Sprint_Direction, "Animation.CharacterAnimState");
+UE_DEFINE_GAMEPLAY_TAG(EAnimTagDef::ECharacterAnimState::Sprint_Turn, "Animation.CharacterAnimState");
+UE_DEFINE_GAMEPLAY_TAG(EAnimTagDef::ECharacterAnimState::Sprint_Stop, "Animation.CharacterAnimState");
+
+UE_DEFINE_GAMEPLAY_TAG(EAnimTagDef::EBoneName::ik_foot_l, "BoneName");
+UE_DEFINE_GAMEPLAY_TAG(EAnimTagDef::EBoneName::ik_foot_r, "BoneName");
+UE_DEFINE_GAMEPLAY_TAG(EAnimTagDef::EBoneName::VB_FootTarget_L, "BoneName");
+UE_DEFINE_GAMEPLAY_TAG(EAnimTagDef::EBoneName::VB_FootTarget_R, "BoneName");
+
 void UDLMainAnimInstanceHumanLocomotion::OnUpdateAnimation(float DeltaSeconds)
 {
 	if (FMath::IsNearlyZero(DeltaSeconds))
@@ -104,7 +122,7 @@ void UDLMainAnimInstanceHumanLocomotion::UpdateAimingValues(float DeltaSeconds)
 	if (!AnimCharacterInfo.CharacterMainState.Normal())
 	{
 
-		AimingValues.AimSweepTime = FMath::GetMappedRangeValueClamped({ -90.0f, 90.0f }, { 1.0f, 0.0f },
+		AimingValues.AimSweepTime = FMath::GetMappedRangeValueClamped(FVector2f{ -90.0f, 90.0f }, FVector2f{ 1.0f, 0.0f },
 																	  AimingValues.AimingAngle.Y);
 		// 计算脊柱的旋转来对齐摄像机方向。
 		AimingValues.SpineRotation.Roll = 0.0f;
@@ -116,7 +134,7 @@ void UDLMainAnimInstanceHumanLocomotion::UpdateAimingValues(float DeltaSeconds)
 		// 通过获取移动输入旋转和actor旋转的差值来调整瞄准偏移，以使角色始终朝向移动输入方向。
 		Delta = AnimCharacterInfo.MovementInput.ToOrientationRotator() - AnimCharacterInfo.CharacterActorRotation;
 		Delta.Normalize();
-		const float InterpTarget = FMath::GetMappedRangeValueClamped({ -180.0f, 180.0f }, { 0.0f, 1.0f }, Delta.Yaw);
+		const float InterpTarget = FMath::GetMappedRangeValueClamped(FVector2f{ -180.0f, 180.0f }, FVector2f{ 0.0f, 1.0f }, Delta.Yaw);
 
 		AimingValues.InputYawOffsetTime = FMath::FInterpTo(AimingValues.InputYawOffsetTime, InterpTarget,
 														   DeltaSeconds, AnimConfig.InputYawOffsetInterpSpeed);
@@ -124,11 +142,11 @@ void UDLMainAnimInstanceHumanLocomotion::UpdateAimingValues(float DeltaSeconds)
 
 	// 计算出不同方向的Yaw值。这是为了优化围绕角色旋转时混合瞄准偏移的问题。这样也能够在保持瞄准响应的同时能够丝滑的像各个方向
 	// 做旋转的插值混合。
-	AimingValues.LeftYawTime = FMath::GetMappedRangeValueClamped({ 0.0f, 180.0f }, { 0.5f, 0.0f },
+	AimingValues.LeftYawTime = FMath::GetMappedRangeValueClamped(FVector2f{ 0.0f, 180.0f }, FVector2f{ 0.5f, 0.0f },
 																 FMath::Abs(AimingValues.SmoothedAimingAngle.X));
-	AimingValues.RightYawTime = FMath::GetMappedRangeValueClamped({ 0.0f, 180.0f }, { 0.5f, 1.0f },
+	AimingValues.RightYawTime = FMath::GetMappedRangeValueClamped(FVector2f{ 0.0f, 180.0f }, FVector2f{ 0.5f, 1.0f },
 																  FMath::Abs(AimingValues.SmoothedAimingAngle.X));
-	AimingValues.ForwardYawTime = FMath::GetMappedRangeValueClamped({ -180.0f, 180.0f }, { 0.0f, 1.0f },
+	AimingValues.ForwardYawTime = FMath::GetMappedRangeValueClamped(FVector2f{ -180.0f, 180.0f }, FVector2f{ 0.0f, 1.0f },
 																	AimingValues.SmoothedAimingAngle.X);
 }
 
@@ -221,8 +239,8 @@ void UDLMainAnimInstanceHumanLocomotion::RotateInPlaceCheck()
 	if (GroundedValues.bRotateL || GroundedValues.bRotateR)
 	{
 		GroundedValues.RotateRate = FMath::GetMappedRangeValueClamped(
-			{ RotateInPlaceValues.AimYawRateMinRange, RotateInPlaceValues.AimYawRateMaxRange },
-			{ RotateInPlaceValues.MinPlayRate, RotateInPlaceValues.MaxPlayRate },
+			FVector2f{ RotateInPlaceValues.AimYawRateMinRange, RotateInPlaceValues.AimYawRateMaxRange },
+			FVector2f{ RotateInPlaceValues.MinPlayRate, RotateInPlaceValues.MaxPlayRate },
 			AnimCharacterInfo.AimYawRate);
 	}
 }
@@ -246,8 +264,8 @@ void UDLMainAnimInstanceHumanLocomotion::TurnInPlaceCheck(float DeltaSeconds)
 
 	TurnInPlaceValues.ElapsedDelayTime += DeltaSeconds;
 	const float ClampedAimAngle = FMath::GetMappedRangeValueClamped(
-		{ AnimConfig.TurnInPlaceConfig.TurnCheckMinAngle, 180.0f }
-		, { AnimConfig.TurnInPlaceConfig.MinAngleDelay,AnimConfig.TurnInPlaceConfig.MaxAngleDelay }
+		FVector2f{ AnimConfig.TurnInPlaceConfig.TurnCheckMinAngle, 180.0f }
+		, FVector2f{ AnimConfig.TurnInPlaceConfig.MinAngleDelay,AnimConfig.TurnInPlaceConfig.MaxAngleDelay }
 		, AimingValues.AimingAngle.X
 	);
 
@@ -364,7 +382,7 @@ void UDLMainAnimInstanceHumanLocomotion::UpdateRagRollValues()
 		GetBoneByTag(EAnimTagDef::EBoneName::Root)
 	).Size();
 	FlailRate = FMath::GetMappedRangeValueClamped(
-		{ 0.0f, 1000.0f }, { 0.0f, 1.0f }, VelocityLength);
+		FVector2f{ 0.0f, 1000.0f }, FVector2f{ 0.0f, 1.0f }, VelocityLength);
 }
 
 bool UDLMainAnimInstanceHumanLocomotion::ShouldMoveCheck()
@@ -542,7 +560,7 @@ float UDLMainAnimInstanceHumanLocomotion::CalculateLandPrediction()
 	VelocityClamped.Normalize();
 
 	const FVector TraceLength = VelocityClamped * FMath::GetMappedRangeValueClamped(
-		{ 0.0f, -4000.0f }, { 50.0f, 2000.0f }, VelocityZ);
+		FVector2f{ 0.0f, -4000.0f }, FVector2f{ 50.0f, 2000.0f }, VelocityZ);
 
 	UWorld* World = GetWorld();
 	check(World);

@@ -65,15 +65,15 @@ namespace EAnimationTag
 	{
 		namespace ENPC
 		{
-			DECLARE_ANIM_TAG(Gameplay.Character.State.NPC, Stage_1);
-			DECLARE_ANIM_TAG(Gameplay.Character.State.NPC, Stage_2);
-			DECLARE_ANIM_TAG(Gameplay.Character.State.NPC, Stage_3);
+			UE_DECLARE_GAMEPLAY_TAG_EXTERN(Stage_1);
+			UE_DECLARE_GAMEPLAY_TAG_EXTERN(Stage_2);
+			UE_DECLARE_GAMEPLAY_TAG_EXTERN(Stage_3);
 
 			namespace EDefense
 			{
-				DECLARE_ANIM_TAG(Gameplay.Character.State.NPC.Defense, Stage_1);
-				DECLARE_ANIM_TAG(Gameplay.Character.State.NPC.Defense, Stage_2);
-				DECLARE_ANIM_TAG(Gameplay.Character.State.NPC.Defense, Stage_3);
+				UE_DECLARE_GAMEPLAY_TAG_EXTERN(Stage_1);
+				UE_DECLARE_GAMEPLAY_TAG_EXTERN(Stage_2);
+				UE_DECLARE_GAMEPLAY_TAG_EXTERN(Stage_3);
 			}
 		}
 	}

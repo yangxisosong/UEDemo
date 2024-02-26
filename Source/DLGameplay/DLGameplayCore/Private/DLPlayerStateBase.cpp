@@ -305,7 +305,8 @@ void ADLPlayerStateBase::OnAbilitySystemActorInfoClear()
 	{
 		if (LocalPlayerAbilitySys)
 		{
-			LocalPlayerAbilitySys->MarkPendingKill();
+			//LocalPlayerAbilitySys->MarkPendingKill();
+			LocalPlayerAbilitySys->MarkAsGarbage();
 			LocalPlayerAbilitySys = nullptr;
 		}
 	}

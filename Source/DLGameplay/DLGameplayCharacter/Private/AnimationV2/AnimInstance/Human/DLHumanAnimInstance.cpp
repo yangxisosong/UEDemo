@@ -15,6 +15,13 @@
 #include "GameFramework/Character.h"
 #include "Kismet/KismetMathLibrary.h"
 
+UE_DEFINE_GAMEPLAY_TAG(EAnimationTag::ECharacterAnimState::InTheLand, "Animation.CharacterAnimState");
+UE_DEFINE_GAMEPLAY_TAG(EAnimationTag::ECharacterAnimState::TurnTo, "Animation.CharacterAnimState");
+UE_DEFINE_GAMEPLAY_TAG(EAnimationTag::ECharacterAnimState::Walk, "Animation.CharacterAnimState");
+UE_DEFINE_GAMEPLAY_TAG(EAnimationTag::ECharacterAnimState::Run, "Animation.CharacterAnimState");
+UE_DEFINE_GAMEPLAY_TAG(EAnimationTag::ECharacterAnimState::Sprint, "Animation.CharacterAnimState");
+UE_DEFINE_GAMEPLAY_TAG(EAnimationTag::ECharacterAnimState::InTheSky, "Animation.CharacterAnimState");
+UE_DEFINE_GAMEPLAY_TAG(EAnimationTag::ECharacterAnimState::Roll, "Animation.CharacterAnimState");
 
 void UDLHumanAnimInstance::CopyNewAnimCharacterInfo(float DeltaSeconds)
 {
@@ -119,8 +126,8 @@ void UDLHumanAnimInstance::TurnInPlaceCheck(float DeltaSeconds)
 
 	ElapsedDelayTime += DeltaSeconds;
 	const float ClampedAimAngle = FMath::GetMappedRangeValueClamped(
-		{ AnimConfig.TurnInPlaceConfig.TurnCheckMinAngle, 180.0f }
-		, { AnimConfig.TurnInPlaceConfig.MinAngleDelay,AnimConfig.TurnInPlaceConfig.MaxAngleDelay }
+		FVector2f{ AnimConfig.TurnInPlaceConfig.TurnCheckMinAngle, 180.0f }
+		, FVector2f{ AnimConfig.TurnInPlaceConfig.MinAngleDelay,AnimConfig.TurnInPlaceConfig.MaxAngleDelay }
 	, AimingValues.AimingAngle.X);
 
 	// 检查ElapsedDelayTime是否超过了设置的延迟时间，如果是，则触发转身。

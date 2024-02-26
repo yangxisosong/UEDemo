@@ -1617,7 +1617,7 @@ void UDLChannelAbilityBase::EndAutoActiveGE()
 	{
 		if (AutoActiveGEHandle.IsValid())
 		{
-			UE_LOG(LogAbilitySystem,
+			UE_LOG(LogDLAbility,
 				   Log,
 				   TEXT("RemoveAutoActiveEffect suc[%s] handle<%s>"),
 				   TO_STR(AutoActiveGEHandle.WasSuccessfullyApplied()),
@@ -1647,7 +1647,7 @@ void UDLChannelAbilityBase::OnAbilityStageChange(EDLAbilityStage NewStage)
 					AutoEndGEHandleArray.AddDefaulted_GetRef() = AutoActiveGEHandle;
 				}
 
-				UE_LOG(LogAbilitySystem,
+				UE_LOG(LogDLAbility,
 					Log,
 					TEXT("AutoActiveEffectInfo suc[%s] handle<%s> %s"),
 					TO_STR(AutoActiveGEHandle.IsValid() && AutoActiveGEHandle.WasSuccessfullyApplied()),

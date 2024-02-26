@@ -9,7 +9,7 @@ UDLAbilityAction::UDLAbilityAction()
 	const auto ImplementedInBlueprint = [](const UFunction* Func) -> bool
 	{
 		return Func && ensure(Func->GetOuter())
-			&& (Func->GetOuter()->IsA(UBlueprintGeneratedClass::StaticClass()) || Func->GetOuter()->IsA(UDynamicClass::StaticClass()));
+			&& (Func->GetOuter()->IsA(UBlueprintGeneratedClass::StaticClass())); //Func->GetOuter()->IsA(UDynamicClass::StaticClass()
 	};
 
 	static FName FuncName = FName(TEXT("K2_OnExec"));

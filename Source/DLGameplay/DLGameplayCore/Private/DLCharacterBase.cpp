@@ -46,7 +46,7 @@
 #include "Types/DLCharacterAssetDef.h"
 
 
-static constexpr float TurnToComplateErrorValue = 0.05f;
+//static constexpr float TurnToComplateErrorValue = 0.05f;
 
 
 ADLCharacterBase::ADLCharacterBase(const FObjectInitializer& ObjectInitializer)

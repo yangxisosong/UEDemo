@@ -13,6 +13,7 @@
 #include "GameFramework/Character.h"
 #include "Kismet/KismetMathLibrary.h"
 
+UE_DEFINE_GAMEPLAY_TAG(EAnimTagDef::EBoneName::Pelvis, "BoneName");
 
 // Sets default values for this component's properties
 UDLAnimComponentHumanLocomotion::UDLAnimComponentHumanLocomotion()
@@ -172,7 +173,7 @@ float UDLAnimComponentHumanLocomotion::CalculateGroundedRotationRate()
 	const float CurveVal =
 		GetMovementComponent()->CurrentMovementSettings.RotationRateCurve->GetFloatValue(MappedSpeedVal);
 	const float ClampedAimYawRate = FMath::GetMappedRangeValueClamped(
-		{ 0.0f, 300.0f }, { 1.0f, 3.0f }, GetAnimCharacterInfo().AimYawRate);
+		FVector2f{ 0.0f, 300.0f }, FVector2f{ 1.0f, 3.0f }, GetAnimCharacterInfo().AimYawRate);
 	DL_ANIM_LOG(Warning, TEXT("<UDLAnimComponentHumanLocomotion::CalculateGroundedRotationRate> MappedSpeedVal:%f,CurveVal:%f,ClampedAimYawRate:%f")
 		, MappedSpeedVal, CurveVal, ClampedAimYawRate);
 	return CurveVal * ClampedAimYawRate;
@@ -448,7 +449,7 @@ void UDLAnimComponentHumanLocomotion::UpdateRagdoll(float DeltaTime)
 		: LastRagdollVelocity / 2;
 
 	// 使用布娃娃速度来缩放布娃娃的关节强度以实现物理动画。
-	const float SpringValue = FMath::GetMappedRangeValueClamped({ 0.0f, 1000.0f }, { 0.0f, 25000.0f },
+	const float SpringValue = FMath::GetMappedRangeValueClamped(FVector2f{ 0.0f, 1000.0f }, FVector2f{ 0.0f, 25000.0f },
 																LastRagdollVelocity.Size());
 	GetCharacterOwner()->GetMesh()->SetAllMotorsAngularDriveParams(SpringValue, 0.0f, 0.0f, false);
 

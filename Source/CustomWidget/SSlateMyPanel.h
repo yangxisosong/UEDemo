@@ -10,112 +10,112 @@ class CUSTOMWIDGET_API SSlateMyPanel : public SPanel
 
 public:
 	//自定义布局的锚点信息
-	class FTestSlot : public TSlotBase<FTestSlot>
+	class FTestSlot : public TSlotBase<FTestSlot>, public TAlignmentWidgetSlotMixin<FTestSlot>
 	{
 	public:
-		virtual ~FTestSlot() {};
 		FTestSlot()
 			: TSlotBase<FTestSlot>()
-			, HAlignment(HAlign_Fill)
-			, VAlignment(VAlign_Fill)
-			, SizeParam(FStretch(1))
-			, SlotPadding(FMargin(0))
-			, MaxSize(0.0f)
+			, TAlignmentWidgetSlotMixin<FTestSlot>(HAlign_Fill, VAlign_Fill)
+			, SlotPadding(0.0f)
+			, Offset(FVector2D::ZeroVector)
+			, AllowScale(true)
 		{ }
+
+		SLATE_SLOT_BEGIN_ARGS_OneMixin(FTestSlot, TSlotBase<FTestSlot>, TAlignmentWidgetSlotMixin<FTestSlot>)
+		SLATE_ATTRIBUTE(FMargin, Padding)
+		SLATE_ATTRIBUTE(FVector2D, SlotOffset)
+		SLATE_ATTRIBUTE(FVector2D, SlotSize)
+		SLATE_ATTRIBUTE(bool, AllowScaling)
+		SLATE_SLOT_END_ARGS()
+
+		void Construct(const FChildren& SlotOwner, FSlotArguments&& InArgs);
+
 	public:
-		int32 ZOrder;
-		/** Horizontal positioning of child within the allocated slot */
-		TEnumAsByte<EHorizontalAlignment> HAlignment;
-
-		/** Vertical positioning of child within the allocated slot */
-		TEnumAsByte<EVerticalAlignment> VAlignment;
-
-		/**
-		* How much space this slot should occupy along panel's direction.
-		*   When SizeRule is SizeRule_Auto, the widget's DesiredSize will be used as the space required.
-		*   When SizeRule is SizeRule_Stretch, the available space will be distributed proportionately between
-		*   peer Widgets depending on the Value property. Available space is space remaining after all the
-		*   peers' SizeRule_Auto requirements have been satisfied.
-		*/
-		FSizeParam SizeParam;
-
-		/** The padding to add around the child. */
-		TAttribute<FMargin> SlotPadding;
-
-		/** The max size that this slot can be (0 if no max) */
-		TAttribute<float> MaxSize;
-	public:
-
-		FTestSlot& AutoWidth()
-		{
-			SizeParam = FAuto();
-			return *this;
-		}
-
-		FTestSlot& MaxWidth(const TAttribute< float >& InMaxWidth)
-		{
-			MaxSize = InMaxWidth;
-			return *this;
-		}
-
-		FTestSlot& FillWidth(const TAttribute< float >& StretchCoefficient)
-		{
-			SizeParam = FStretch(StretchCoefficient);
-			return *this;
-		}
-		FTestSlot& Padding(float Uniform)
-		{
-			SlotPadding = FMargin(Uniform);
-			return *this;
-		}
-
-		FTestSlot& Padding(float Horizontal, float Vertical)
-		{
-			SlotPadding = FMargin(Horizontal, Vertical);
-			return *this;
-		}
-
-		FTestSlot& Padding(float Left, float Top, float Right, float Bottom)
-		{
-			SlotPadding = FMargin(Left, Top, Right, Bottom);
-			return *this;
-		}
-
-		FTestSlot& Padding(TAttribute<FMargin> InPadding)
+		UE_DEPRECATED(5.0, "Padding is now deprecated. Use the FSlotArgument or the SetPadding function.")
+			FTestSlot& Padding(const TAttribute<FMargin> InPadding)
 		{
 			SlotPadding = InPadding;
 			return *this;
 		}
 
-		FTestSlot& HAlign(EHorizontalAlignment InHAlignment)
+		UE_DEPRECATED(5.0, "SlotOffset is now deprecated. Use the FSlotArgument or the SetSlotOffset function.")
+			FTestSlot& SlotOffset(const TAttribute<FVector2D> InOffset)
 		{
-			HAlignment = InHAlignment;
+			Offset = InOffset;
 			return *this;
 		}
 
-		FTestSlot& VAlign(EVerticalAlignment InVAlignment)
+		UE_DEPRECATED(5.0, "SlotSize is now deprecated. Use the FSlotArgument or the SetSlotSize function.")
+			FTestSlot& SlotSize(const TAttribute<FVector2D> InSize)
 		{
-			VAlignment = InVAlignment;
+			Size = InSize;
 			return *this;
 		}
 
-		//FTestSlot& operator[](TSharedRef<SWidget> InWidget)
-		//{
-		//	FTestSlot::operator[](InWidget);
-		//	return *this;
-		//}
-
-		FTestSlot& Expose(FTestSlot*& OutVarToInit)
+		UE_DEPRECATED(5.0, "AllowScaling is now deprecated. Use the FSlotArgument or the SetAllowScalingfunction.")
+			FTestSlot& AllowScaling(const TAttribute<bool> InAllowScale)
 		{
-			OutVarToInit = this;
+			AllowScale = InAllowScale;
 			return *this;
 		}
+
+	public:
+
+		void SetPadding(TAttribute<FMargin> InPadding)
+		{
+			SlotPadding = MoveTemp(InPadding);
+		}
+
+		FMargin GetPadding() const
+		{
+			return SlotPadding.Get();
+		}
+
+		void SetSlotOffset(TAttribute<FVector2D> InOffset)
+		{
+			Offset = MoveTemp(InOffset);
+		}
+
+		FVector2D GetSlotOffset() const
+		{
+			return Offset.Get();
+		}
+
+		void SetSlotSize(TAttribute<FVector2D> InSize)
+		{
+			Size = MoveTemp(InSize);
+		}
+
+		FVector2D GetSlotSize() const
+		{
+			return Size.Get();
+		}
+
+		void SetAllowScaling(TAttribute<bool> InAllowScaling)
+		{
+			AllowScale = MoveTemp(InAllowScaling);
+		}
+
+		bool GetAllowScaling() const
+		{
+			return AllowScale.Get();
+		}
+
+	public:
+		/** The child widget contained in this slot. */
+		TAttribute<FMargin> SlotPadding;
+		TAttribute<FVector2D> Offset;
+		TAttribute<FVector2D> Size;
+		TAttribute<bool> AllowScale;
+		int32 ZOrder;
 	};
+
+
 
 	SLATE_BEGIN_ARGS(SSlateMyPanel){}
 
-	SLATE_SUPPORTS_SLOT(SSlateMyPanel::FTestSlot)
-
+	SLATE_SLOT_ARGUMENT(SSlateMyPanel::FTestSlot, Slots)
+	
 	SLATE_END_ARGS()
 
 public:
@@ -157,6 +157,10 @@ public:
 	FTestSlot& AddSlot(int32 ZOrder = INDEX_NONE);
 
 	bool RemoveSlot(TSharedRef< SWidget > Widget);
+
+	EHorizontalAlignment GetHorizontalAlignment() const;
+
+	EVerticalAlignment GetVerticalAlignment() const;
 protected:
 	/** The Box Panel's children. */
 	TPanelChildren<FTestSlot> Children;

@@ -113,7 +113,7 @@ void FAbilityChainNodeEditor::AddButtonToToolBar()
 				NAME_None,
 				FText::FromString("Build"),
 				FText::FromString("Build Json To Asset"),
-				FSlateIcon(FEditorStyle::GetStyleSetName(), "LevelEditor.ViewOptions"));
+				FSlateIcon(FAppStyle::GetAppStyleSetName(), "LevelEditor.ViewOptions"));
 		})
 	);
 

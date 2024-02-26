@@ -921,8 +921,7 @@ void FTargetSelectorEditor::SetPlayAnimation(FName Type) const
 		Com->Play(false);
 		Com->Stop();
 
-		const auto MaxLength = Cast<UAnimSequenceBase>(TargetSelectorObject->PreviewMeshAnimation.Get())->
-			SequenceLength;
+		const auto MaxLength = Cast<UAnimSequenceBase>(TargetSelectorObject->PreviewMeshAnimation.Get())->GetPlayLength();
 		Com->SetPosition(TargetSelectorObject->Schedule * MaxLength, false);
 		if (TargetSelectorObject->Schedule == 0)
 		{

@@ -293,15 +293,15 @@ float UDLCharacterMovementComponent::GetMappedSpeed() const
 
 	if (Speed > LocJogSpeed)
 	{
-		return  FMath::GetMappedRangeValueClamped({ LocJogSpeed,LocSprintSpeed }, { 2.0f,3.0f }, Speed);
+		return  FMath::GetMappedRangeValueClamped(FVector2f{ LocJogSpeed,LocSprintSpeed }, FVector2f{ 2.0f,3.0f }, Speed);
 	}
 
 	if (Speed > LocWalkSpeed)
 	{
-		return  FMath::GetMappedRangeValueClamped({ LocWalkSpeed,LocJogSpeed }, { 1.0f,2.0f }, Speed);
+		return  FMath::GetMappedRangeValueClamped(FVector2f{ LocWalkSpeed,LocJogSpeed }, FVector2f{ 1.0f,2.0f }, Speed);
 	}
 
-	return  FMath::GetMappedRangeValueClamped({ 0.0f,LocWalkSpeed }, { 1.0f,2.0f }, Speed);
+	return  FMath::GetMappedRangeValueClamped(FVector2f{ 0.0f,LocWalkSpeed }, FVector2f{ 1.0f,2.0f }, Speed);
 }
 
 void UDLCharacterMovementComponent::SetAllowedGait(const EGaitType NewGait)

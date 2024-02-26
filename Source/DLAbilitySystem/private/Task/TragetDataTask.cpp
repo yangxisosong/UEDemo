@@ -35,7 +35,7 @@ void UServerWaitTargetDataTask::Activate()
 
 void UServerWaitTargetDataTask::OnDestroy(bool bAbilityEnded)
 {
-	if (AbilitySystemComponent)
+	if (AbilitySystemComponent.IsValid())
 	{
 		const FGameplayAbilitySpecHandle	SpecHandle = GetAbilitySpecHandle();
 		const FPredictionKey ActivationPredictionKey = GetActivationPredictionKey();

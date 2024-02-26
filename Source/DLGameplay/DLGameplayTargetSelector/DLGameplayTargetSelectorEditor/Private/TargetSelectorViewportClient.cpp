@@ -17,7 +17,7 @@ FTargetSelectorViewportClient::FTargetSelectorViewportClient(
 	  , TargetSelectorEditor(InTargetSelectorEditorPtr)
 {
 	bNeedsInvalidateHitProxy = true;
-	bOwnsModeTools = false;
+	//bOwnsModeTools = false;
 
 	//AddRealtimeOverride(false, FText::FromString("Test"));
 	FEditorViewportClient::SetShowStats(false);
@@ -155,7 +155,7 @@ void FTargetSelectorViewportClient::SelectActor(AActor* NewActor)
 	if (SelectedActor.IsValid())
 	{
 		GEditor->SelectActor(NewActor, true, true);
-		SetWidgetMode(FWidget::EWidgetMode::WM_Translate);
+		SetWidgetMode(UE::Widget::EWidgetMode::WM_Translate);
 		EngineShowFlags.SetSelectionOutline(true);
 	}
 }

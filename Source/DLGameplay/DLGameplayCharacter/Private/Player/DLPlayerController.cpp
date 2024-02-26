@@ -328,7 +328,7 @@ void ADLPlayerController::ClientProcessPawnRemove(ADLPlayerStateBase* PS)
 	// 移除 锁定系统
 	if (PlayerLockUnitLogic)
 	{
-		PlayerLockUnitLogic->MarkPendingKill();
+		PlayerLockUnitLogic->MarkAsGarbage();
 		PlayerLockUnitLogic = nullptr;
 	}
 

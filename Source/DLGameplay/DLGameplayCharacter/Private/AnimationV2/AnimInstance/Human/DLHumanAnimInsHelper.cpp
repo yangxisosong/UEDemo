@@ -278,7 +278,7 @@ const float UDLHumanAnimInsHelper::CalculateLandPrediction(UDLHumanAnimInstance*
 	VelocityClamped.Normalize();
 
 	const FVector TraceLength = VelocityClamped * FMath::GetMappedRangeValueClamped(
-		{ 0.0f, -4000.0f }, { 50.0f, 2000.0f }, VelocityZ);
+		FVector2f{ 0.0f, -4000.0f }, FVector2f{ 50.0f, 2000.0f }, VelocityZ);
 
 	UWorld* World = AnimIns->GetWorld();
 	ensureMsgf(World, TEXT("World is invalid!!!"));

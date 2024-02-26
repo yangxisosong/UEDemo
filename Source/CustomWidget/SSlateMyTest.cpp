@@ -19,32 +19,32 @@ int32 SSlateMyTest::OnPaint(const FPaintArgs& Args, const FGeometry& AllottedGeo
 	bool bParentEnabled) const
 {
 	//控件位置
-	const FVector2D Pos = AllottedGeometry.GetAbsolutePosition();
+	const FVector2f Pos = AllottedGeometry.GetAbsolutePosition();
 
 	auto pos2 = AllottedGeometry.Position;
 	//获取大小
-	const FVector2D Size = AllottedGeometry.GetAbsoluteSize();
+	const FVector2f Size = AllottedGeometry.GetAbsoluteSize();
 	//计算中心坐标
-	const FVector2D Center = Pos + 0.5 * Size;
+	const FVector2f Center = Pos + 0.5 * Size;
 
 	const float Radius = FMath::Min(Size.X, Size.Y) * 0.5f;
 
 	const FSlateBrush* SlateBrush = Brush.GetImage().Get();
-	FLinearColor LinearColor = ColorAndOpacity.Get() * InWidgetStyle.GetColorAndOpacityTint() * SlateBrush->GetTint(InWidgetStyle);
+	FLinearColor LinearColor = GetColorAndOpacity() * InWidgetStyle.GetColorAndOpacityTint() * SlateBrush->GetTint(InWidgetStyle);
 	FColor FinalColorAndOpacity = LinearColor.ToFColor(true);
 
-	TArray<FVector2D> posarry;
-	posarry.Add(FVector2D(-0.5, -0.5));
-	posarry.Add(FVector2D(-0.5, 0.5));
-	posarry.Add(FVector2D(0.5, 0.5));
-	posarry.Add(FVector2D(0.5, -0.5));
+	TArray<FVector2f> posarry;
+	posarry.Add(FVector2f(-0.5, -0.5));
+	posarry.Add(FVector2f(-0.5, 0.5));
+	posarry.Add(FVector2f(0.5, 0.5));
+	posarry.Add(FVector2f(0.5, -0.5));
 
 	TArray<FSlateVertex> Vertices;
 
 	TArray<SlateIndex> Indices;
 
 	FSlateVertex centerinfo;
-	centerinfo.Position= Center;
+	centerinfo.Position = Center;
 	centerinfo.Color = FinalColorAndOpacity;
 	centerinfo.TexCoords[0] = 0.5;
 	centerinfo.TexCoords[1] = 0.5;
@@ -54,7 +54,7 @@ int32 SSlateMyTest::OnPaint(const FPaintArgs& Args, const FGeometry& AllottedGeo
 	for (int i = 0; i < posarry.Num(); i++)
 	{
 		FSlateVertex pos;
-		pos.Position = FVector2D(Center.X+posarry[i].X*(Radius/0.5), Center.Y+posarry[i].Y * (Radius / 0.5));
+		pos.Position = FVector2f(Center.X+posarry[i].X*(Radius/0.5), Center.Y+posarry[i].Y * (Radius / 0.5));
 		pos.Color = FinalColorAndOpacity;
 
 		//计算UV
@@ -155,21 +155,24 @@ int32 SSlateMyTest::OnPaint(const FPaintArgs& Args, const FGeometry& AllottedGeo
 
 	const FSlateRenderTransform pRenderTransform = AllottedGeometry.GetAccumulatedRenderTransform();
 
-	FVector2D TopLeft(0, 0);
-	FVector2D BotRight(AllottedGeometry.GetLocalSize());
-	const FVector2D TopRight = FVector2D(BotRight.X, TopLeft.Y);
-	const FVector2D BotLeft = FVector2D(TopLeft.X, BotRight.Y);
+	FVector2f TopLeft(0, 0);
+	FVector2f BotRight(AllottedGeometry.GetLocalSize());
+	const FVector2f TopRight = FVector2f(BotRight.X, TopLeft.Y);
+	const FVector2f BotLeft = FVector2f(TopLeft.X, BotRight.Y);
 
-	FVector2D StartUV = FVector2D(0.0f, 0.0f);
-	FVector2D EndUV = FVector2D(1.0f, 1.0f);
+	FVector2f StartUV = FVector2f(0.0f, 0.0f);
+	FVector2f EndUV = FVector2f(1.0f, 1.0f);
 	auto LocalSize = AllottedGeometry.GetLocalSize();
 	auto DrawScale = AllottedGeometry.Scale;
-	auto Tiling= FVector2D(1.0f, 1.0f);
+	auto Tiling= FVector2f(1.0f, 1.0f);
 
-	vertexs[0] = FSlateVertex::Make<ESlateVertexRounding::Disabled>(pRenderTransform, TopLeft, LocalSize, DrawScale, FVector4(StartUV, Tiling), FColor::Red);
-	vertexs[1] = FSlateVertex::Make<ESlateVertexRounding::Disabled>(pRenderTransform, BotLeft, LocalSize, DrawScale, FVector4(FVector2D(StartUV.X, EndUV.Y), Tiling), FColor::Green);
-	vertexs[2] = FSlateVertex::Make<ESlateVertexRounding::Disabled>(pRenderTransform, BotRight, LocalSize, DrawScale, FVector4(EndUV, Tiling), FColor::Blue);
+	//vertexs[0] = FSlateVertex::Make<ESlateVertexRounding::Disabled>(pRenderTransform, TopLeft, LocalSize, DrawScale, FVector4(StartUV, Tiling), FColor::Red);
+	//vertexs[1] = FSlateVertex::Make<ESlateVertexRounding::Disabled>(pRenderTransform, BotLeft, LocalSize, DrawScale, FVector4(FVector2D(StartUV.X, EndUV.Y), Tiling), FColor::Green);
+	//vertexs[2] = FSlateVertex::Make<ESlateVertexRounding::Disabled>(pRenderTransform, BotRight, LocalSize, DrawScale, FVector4(EndUV, Tiling), FColor::Blue);
 	
+	vertexs[0] = FSlateVertex::Make<ESlateVertexRounding::Disabled>(pRenderTransform, TopLeft, FVector2f(0.f, 0.f), FColor::Red);
+	vertexs[1] = FSlateVertex::Make<ESlateVertexRounding::Disabled>(pRenderTransform, BotLeft, FVector2f(0.f, 0.f), FColor::Green);
+	vertexs[2] = FSlateVertex::Make<ESlateVertexRounding::Disabled>(pRenderTransform, BotRight, FVector2f(0.f, 0.f), FColor::Blue);
 	
 	//auto transform = this->GetRenderTransform();
 	//this->GetContentScale();

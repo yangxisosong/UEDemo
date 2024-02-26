@@ -63,7 +63,7 @@ void SGraphNode_AbilityChainNode::UpdateGraphNode()
 
 	NodeTitleText = SNew(STextBlock).Text(Name)
 	                                .ColorAndOpacity(FLinearColor::White)
-	                                .TextStyle(FEditorStyle::Get(), TEXT("GraphBreadcrumbButtonText"));
+	                                .TextStyle(FAppStyle::Get(), TEXT("GraphBreadcrumbButtonText"));
 	//.Font(NormalFont);
 
 	UpdateSubNode();
@@ -78,7 +78,7 @@ void SGraphNode_AbilityChainNode::UpdateGraphNode()
 			.AutoHeight()
 			[
 				SNew(SBorder)
-				.BorderImage(FEditorStyle::GetBrush("Graph.Node.Body"))
+				.BorderImage(FAppStyle::GetBrush("Graph.Node.Body"))
 				.Padding(0)
 				[
 					SNew(SVerticalBox)
@@ -100,7 +100,7 @@ void SGraphNode_AbilityChainNode::UpdateGraphNode()
 					[
 						// NODE CONTENT AREA
 						SNew(SBorder)
-						.BorderImage(FEditorStyle::GetBrush("NoBorder"))
+						.BorderImage(FAppStyle::GetBrush("NoBorder"))
 						.HAlign(HAlign_Fill)
 						.VAlign(VAlign_Fill)
 						.Padding(FMargin(0, 3))
@@ -194,7 +194,7 @@ TSharedPtr<SWidget> SGraphNode_AbilityChainNode::CreatSubCard(const FString& Str
 {
 	//Graph.Node.TitleBackground
 
-	const auto brush = FEditorStyle::GetBrush("Graph.Node.TitleBackground");
+	const auto brush = FAppStyle::GetBrush("Graph.Node.TitleBackground");
 
 	FSlateFontInfo FontInfo;
 	FontInfo.Size = 20;

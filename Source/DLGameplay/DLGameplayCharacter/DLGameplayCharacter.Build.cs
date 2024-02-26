@@ -25,7 +25,8 @@ public class DLGameplayCharacter : ModuleRules
             "DataRegistry",
             "PhysicsCore",
             "Niagara",
-            "InputCore"
+            "InputCore",
+            "SMSystem"
         });
 
         // Project Module 
@@ -42,7 +43,6 @@ public class DLGameplayCharacter : ModuleRules
         });
 
         PublicDependencyModuleNames.AddRange(new string[] {
-           "SMSystem",
            "GameplayMessageRuntime"
         });
     }

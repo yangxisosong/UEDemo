@@ -15,7 +15,8 @@ public class DLAnimationEditorTool : ModuleRules
             "Core",
             "CoreUObject",
             "Engine",
-            "AnimationModifiers"
+            "AnimationModifiers",
+            "AnimationBlueprintLibrary"
         });
 
         // Project Module 

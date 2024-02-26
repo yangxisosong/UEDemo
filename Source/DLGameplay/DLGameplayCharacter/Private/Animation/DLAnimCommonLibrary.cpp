@@ -159,7 +159,7 @@ void UDLAnimCommonLibrary::GetBonePosesForTime(const UAnimSequence* AnimationSeq
 					FTransform& Transform = Poses[BoneNameIndex];
 					if (IsValidRawAnimationTrackName(AnimationSequence, BoneName, RefSkeleton))
 					{
-						AnimationSequence->ExtractBoneTransform(GetRawAnimationTrackByName(AnimationSequence, BoneName, PreviewMesh), Transform, Time);
+						//AnimationSequence->ExtractBoneTransform(GetRawAnimationTrackByName(AnimationSequence, BoneName, PreviewMesh), Transform, Time);
 					}
 					else
 					{
@@ -204,7 +204,7 @@ void UDLAnimCommonLibrary::GetBonePoseForTime(const UAnimSequence* AnimationSequ
 
 bool UDLAnimCommonLibrary::IsValidTimeInternal(const UAnimSequence* AnimationSequence, const float Time)
 {
-	return FMath::IsWithinInclusive(Time, 0.0f, AnimationSequence->SequenceLength);
+	return FMath::IsWithinInclusive(Time, 0.0f, AnimationSequence->GetPlayLength());
 }
 
 bool UDLAnimCommonLibrary::IsValidRawAnimationTrackName(const UAnimSequence* AnimationSequence, const FName TrackName, const FReferenceSkeleton& RefSkeleton)
@@ -222,16 +222,16 @@ bool UDLAnimCommonLibrary::IsValidRawAnimationTrackName(const UAnimSequence* Ani
 	return false;
 }
 
-const FRawAnimSequenceTrack& UDLAnimCommonLibrary::GetRawAnimationTrackByName(const UAnimSequence* AnimationSequence,
-	const FName TrackName, const USkeletalMesh* PreviewMesh /*nullptr*/)
-{
-
-	ensureMsgf(AnimationSequence, TEXT("Invalid Animation Sequence supplied for GetRawAnimationTrackByName"));
-
-	const int32 TrackIndex = GetBoneIndex(AnimationSequence, TrackName, PreviewMesh);
-	ensureMsgf(TrackIndex != INDEX_NONE, TEXT("Raw Animation Track %s does not exist in Animation Sequence %s"), *TrackName.ToString(), *AnimationSequence->GetName());
-	return AnimationSequence->GetRawAnimationTrack(TrackIndex);
-}
+//const FRawAnimSequenceTrack& UDLAnimCommonLibrary::GetRawAnimationTrackByName(const UAnimSequence* AnimationSequence,
+//	const FName TrackName, const USkeletalMesh* PreviewMesh /*nullptr*/)
+//{
+//
+//	ensureMsgf(AnimationSequence, TEXT("Invalid Animation Sequence supplied for GetRawAnimationTrackByName"));
+//
+//	const int32 TrackIndex = GetBoneIndex(AnimationSequence, TrackName, PreviewMesh);
+//	ensureMsgf(TrackIndex != INDEX_NONE, TEXT("Raw Animation Track %s does not exist in Animation Sequence %s"), *TrackName.ToString(), *AnimationSequence->GetName());
+//	return AnimationSequence->GetRawAnimationTrack(TrackIndex);
+//}
 
 int32 UDLAnimCommonLibrary::GetBoneIndex(const UAnimSequence* AnimationSequence, FName BoneName, const USkeletalMesh* PreviewMesh /*nullptr*/)
 {

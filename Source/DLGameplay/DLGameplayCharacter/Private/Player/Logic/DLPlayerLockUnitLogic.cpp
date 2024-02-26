@@ -119,7 +119,7 @@ UDLLockPointComponent* UDLPlayerLockUnitLogic::FindBastLockPoint(const TArray<AA
 	if (LocalPlayer && LocalPlayer->ViewportClient)
 	{
 		FSceneViewProjectionData ProjectionData;
-		if (LocalPlayer->GetProjectionData(LocalPlayer->ViewportClient->Viewport, eSSP_FULL, /*out*/ ProjectionData))
+		if (LocalPlayer->GetProjectionData(LocalPlayer->ViewportClient->Viewport, /*out*/ ProjectionData))
 		{
 			FMatrix const ViewProjectionMatrix = ProjectionData.ComputeViewProjectionMatrix();
 

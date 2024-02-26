@@ -7,6 +7,11 @@
 #include "GameFramework/Character.h"
 #include "GameFramework/CharacterMovementComponent.h"
 
+
+UE_DEFINE_GAMEPLAY_TAG(EAnimTagDef::EBoneName::Root, "BoneName");
+UE_DEFINE_GAMEPLAY_TAG(EAnimTagDef::EBoneName::L_Foot, "BoneName");
+UE_DEFINE_GAMEPLAY_TAG(EAnimTagDef::EBoneName::R_Foot, "BoneName");
+
 void DLAnimHumanIKHelper::UpdateFootIK(UDLMainAnimInstanceHumanLocomotion* AnimIns, float DeltaSeconds)
 {
 	FVector FootOffsetLTarget = FVector::ZeroVector;

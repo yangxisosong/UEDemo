@@ -5,11 +5,11 @@
 BEGIN_SLATE_FUNCTION_BUILD_OPTIMIZATION
 void SSlateMyPanel::Construct(const SSlateMyPanel::FArguments& InArgs)
 {
-	const int32 NumSlots = InArgs.Slots.Num();
-	for (int32 SlotIndex = 0; SlotIndex < NumSlots; ++SlotIndex)
-	{
-		Children.Add(InArgs.Slots[SlotIndex]);
-	}
+	//const int32 NumSlots = InArgs.Slots.Num();
+	//for (int32 SlotIndex = 0; SlotIndex < NumSlots; ++SlotIndex)
+	//{
+	//	Children.Add(InArgs.Slots[SlotIndex]);
+	//}
 }
 
 SSlateMyPanel::SSlateMyPanel():Children(this)
@@ -152,4 +152,14 @@ bool SSlateMyPanel::RemoveSlot(TSharedRef< SWidget > Widget)
 	}
 
 	return false;
+}
+
+EHorizontalAlignment SSlateMyPanel::GetHorizontalAlignment() const
+{
+	return EHorizontalAlignment();
+}
+
+EVerticalAlignment SSlateMyPanel::GetVerticalAlignment() const
+{
+	return EVerticalAlignment();
 }

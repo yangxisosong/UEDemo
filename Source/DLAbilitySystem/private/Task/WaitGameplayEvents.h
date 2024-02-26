@@ -51,7 +51,7 @@ public:
 			return OptionalExternalTarget;
 		}
 
-		return AbilitySystemComponent;
+		return nullptr;
 	}
 
 	virtual void Activate() override
