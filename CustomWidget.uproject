@@ -12,6 +12,18 @@
 				"Slate",
 				"SlateCore"
 			]
+		},
+
+		{
+			"Name": "DLGameplayTargetSelector",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "DLTargetSelectorEditor",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
 		}
+
 	]
 }
