@@ -1,5 +1,5 @@
 #include "AbilityChainNodeAction.h"
-#include "AbilityChainAsset.h"
+#include "AbilityChainAsset2.h"
 #include "DLAbilityChainEditorModule.h"
 #include "AbilityChainNodeEditor.h"
 #include "AbilityChainNodeEditorStyle.h"
@@ -57,7 +57,7 @@ void FAbilityChainNodeAssetTypeActions::OpenAssetEditor(const TArray<UObject*>& 
 {
 	for (UObject* Obj : InObjects)
 	{
-		const auto TargetSelector = Cast<UAbilityChainAsset>(Obj);
+		const auto TargetSelector = Cast<UAbilityChainAsset2>(Obj);
 		if (TargetSelector)
 		{
 			bool bIsFind = false;
@@ -81,5 +81,5 @@ void FAbilityChainNodeAssetTypeActions::OpenAssetEditor(const TArray<UObject*>& 
 
 UClass* FAbilityChainNodeAssetTypeActions::GetSupportedClass() const
 {
-	return UAbilityChainAsset::StaticClass();
+	return UAbilityChainAsset2::StaticClass();
 }

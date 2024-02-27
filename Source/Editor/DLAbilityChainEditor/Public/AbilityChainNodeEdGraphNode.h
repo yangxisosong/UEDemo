@@ -1,7 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "DLGameplayAbilityBase.h"
+#include "AbilityChainAsset2.h"
 #include "EdGraph/EdGraphNode.h"
 #include "AbilityChainNodeEdGraphNode.generated.h"
 
@@ -37,7 +37,7 @@ public:
 	FString TitleName;
 
 	UPROPERTY(EditAnywhere, meta = (EditCondition = "NodeType != EAbilityChainNodeType::RootNode"))
-	EPrimaryInputID InputIDInfo;
+	EPrimaryInputID2 InputIDInfo;
 
 	UPROPERTY(EditAnywhere, meta = (EditCondition = "NodeType != EAbilityChainNodeType::RootNode", GetOptions = "GetSelectOptions"))
 	TArray<FName>AbilityArrayInfo;

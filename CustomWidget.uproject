@@ -23,7 +23,21 @@
 			"Name": "DLTargetSelectorEditor",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "DLAbilityChainEditor",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "DLGameplayPathControllerEditor",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "DLGameplayPathController",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
 		}
-
 	]
 }

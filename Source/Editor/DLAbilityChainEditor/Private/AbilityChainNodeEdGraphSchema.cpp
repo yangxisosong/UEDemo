@@ -1,7 +1,7 @@
 #include "AbilityChainNodeEdGraphSchema.h"
 
 #include "AbilityChainConnectionDrawingPolicy.h"
-#include "GameAbilitySysDef.h"
+#include "AbilityChainAsset2.h"
 #include "GraphEditorActions.h"
 #include "ToolMenu.h"
 #include "Slate/Public/Framework/Commands/GenericCommands.h"
@@ -31,15 +31,24 @@ void UAbilityChainNodeEdGraphSchema::GetGraphContextActions(FGraphContextMenuBui
 	//ContextMenuBuilder.AddAction(NewAction);
 	//FCategorizedGraphActionListBuilder CompositesBuilder(TEXT("NodeType"));
 
-	for (const EPrimaryInputID Thing : TEnumRange<EPrimaryInputID>())
+	for (const EPrimaryInputID2 Thing : TEnumRange<EPrimaryInputID2>())
 	{
-		if((Thing == EPrimaryInputID::None)||(Thing == EPrimaryInputID::DebugKeyBegin))
+		if((Thing == EPrimaryInputID2::None)||(Thing == EPrimaryInputID2::DebugKeyBegin))
 		{
 			continue;
 		}
-		auto InputName = StaticEnum<EPrimaryInputID>()->GetDisplayNameTextByIndex(static_cast<int32>(Thing));
+
+		auto InputName = StaticEnum<EPrimaryInputID2>()->GetDisplayNameTextByIndex(static_cast<int32>(Thing));
+
+		//获取 UEnum 对象：
+		//const UEnum* EnumObject = FindObject<UEnum>(ANY_PACKAGE, TEXT("EPrimaryInputID2"));
+		//获取对应字符串：
+		//const FName EnumName = (EnumObject->GetNameByValue());
+
+		FString name = "Name:"+InputName.ToString();
+
 		AddNewNodeAction(ContextMenuBuilder, FText::GetEmpty(), InputName,
-		FText::FromString(ToString(Thing)));
+		FText::FromString(name));
 	};
 	//ContextMenuBuilder.Append(CompositesBuilder);
 }

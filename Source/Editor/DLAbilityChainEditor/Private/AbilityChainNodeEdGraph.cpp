@@ -194,7 +194,7 @@ void UAbilityChainNodeEdGraph::UpdateAbilityAssetCache()
 			const auto Aset = j.GetAsset();
 			if (UBlueprint* BP = Cast<UBlueprint>(Aset))
 			{
-				const bool OK = BP->GeneratedClass->IsChildOf<UDLGameplayAbilityBase>();
+				const bool OK = false;//BP->GeneratedClass->IsChildOf<UDLGameplayAbilityBase>();
 
 				if (OK)
 				{

@@ -4,7 +4,7 @@
 #include "IDLAbilityChainEditor.h"
 #include "Serialization/JsonSerializerMacros.h"
 
-class UAbilityChainAsset;
+class UAbilityChainAsset2;
 class UAbilityChainNodeEdGraphNode;
 class UAbilityChainNodeEdGraph;
 
@@ -147,7 +147,7 @@ protected:
 	void OnSelectedNodesChanged(const TSet<class UObject*>& NewSelection) const;
 	void GetAbilityChainNodeInfo(NodeJsonData& StrArray, UAbilityChainNodeEdGraphNode* Node);
 private:
-	UAbilityChainAsset* AbilityChainNodeAssetObject;
+	UAbilityChainAsset2* AbilityChainNodeAssetObject;
 
 	TSharedPtr<IDetailsView> DetailContent;
 

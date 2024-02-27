@@ -5,7 +5,7 @@
 #include "AbilityChainNodeAssetFactory.generated.h"
 
 class UTreeNodeAsset;
-class UAbilityChainAsset;
+class UAbilityChainAsset2;
 
 UCLASS()
 class UAbilityChainNodeAssetFactory : public UFactory
@@ -23,5 +23,5 @@ public:
 
 protected:
 	UPROPERTY()
-	TSubclassOf<UAbilityChainAsset> AbilityChainNodeAssetClass;
+	TSubclassOf<UAbilityChainAsset2> AbilityChainNodeAssetClass;
 };

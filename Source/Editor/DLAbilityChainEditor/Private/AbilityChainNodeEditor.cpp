@@ -1,5 +1,5 @@
 #include "AbilityChainNodeEditor.h"
-#include "AbilityChainAsset.h"
+#include "AbilityChainAsset2.h"
 #include "DesktopPlatformModule.h"
 #include "EdGraphUtilities.h"
 #include "Widgets/Docking/SDockTab.h"
@@ -137,7 +137,7 @@ FGraphPanelSelectionSet FAbilityChainNodeEditor::GetSelectedNodes() const
 void FAbilityChainNodeEditor::InitTreeNodeEditor(const FInitArg& Arg)
 {
 	//InitBlueprintEditor(EToolkitMode::Standalone, Arg.InitToolkitHost,);
-	AbilityChainNodeAssetObject = Cast<UAbilityChainAsset>(Arg.Object);
+	AbilityChainNodeAssetObject = Cast<UAbilityChainAsset2>(Arg.Object);
 	const TArray<UObject*>* EditedObjects = FAssetEditorToolkit::GetObjectsCurrentlyBeingEdited();
 
 	CreateCommandList();
@@ -645,7 +645,7 @@ void FAbilityChainNodeEditor::OnSelectedNodesChanged(const TSet<UObject*>& NewSe
 
 void FAbilityChainNodeEditor::GetAbilityChainNodeInfo(NodeJsonData& StrArray, UAbilityChainNodeEdGraphNode* Node)
 {
-	StrArray.InputID = StaticEnum<EPrimaryInputID>()->GetNameStringByValue(static_cast<int32>(Node->InputIDInfo));
+	StrArray.InputID = StaticEnum<EPrimaryInputID2>()->GetNameStringByValue(static_cast<int32>(Node->InputIDInfo));
 	for (int i = 0; i < Node->AbilityArrayInfo.Num(); i++)
 	{
 		AbilityInfo info;

@@ -79,9 +79,9 @@ UEdGraphNode* FAbilityChaiNodeSchemaAction_NewNode::PerformAction(UEdGraph* Pare
 	//设置信息
 	NewNode->TitleName = MenuDescriptionArray[0];
 
-	for (const EPrimaryInputID Thing : TEnumRange<EPrimaryInputID>())
+	for (const EPrimaryInputID2 Thing : TEnumRange<EPrimaryInputID2>())
 	{
-		auto InputName = StaticEnum<EPrimaryInputID>()->GetDisplayNameTextByIndex(static_cast<int32>(Thing));
+		auto InputName = StaticEnum<EPrimaryInputID2>()->GetDisplayNameTextByIndex(static_cast<int32>(Thing));
 		if (InputName.ToString() == GetMenuDescription().ToString())
 		{
 			NewNode->InputIDInfo = Thing;

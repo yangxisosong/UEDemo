@@ -1,5 +1,5 @@
 #include "AbilityChainNodeAssetFactory.h"
-#include "AbilityChainAsset.h"
+#include "AbilityChainAsset2.h"
 #include "ClassViewerModule.h"
 #include "AudioEditor/Private/Factories/SoundFactoryUtility.h"
 #include "Kismet2/SClassPickerDialog.h"
@@ -10,22 +10,22 @@ UAbilityChainNodeAssetFactory::UAbilityChainNodeAssetFactory(const FObjectInitia
 {
 	bCreateNew = true;
 	bEditAfterNew = true;
-	SupportedClass = UAbilityChainAsset::StaticClass();
+	SupportedClass = UAbilityChainAsset2::StaticClass();
 }
 
 UObject* UAbilityChainNodeAssetFactory::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName,
                                                        EObjectFlags Flags, UObject* Context, FFeedbackContext* Warn)
 {
-	UAbilityChainAsset* AssetObj;
+	UAbilityChainAsset2* AssetObj;
 
 
 	if (AbilityChainNodeAssetClass !=nullptr)
 	{
-		AssetObj = NewObject<UAbilityChainAsset>(InParent, AbilityChainNodeAssetClass, InName, Flags);
+		AssetObj = NewObject<UAbilityChainAsset2>(InParent, AbilityChainNodeAssetClass, InName, Flags);
 	}
 	else
 	{
-		AssetObj = NewObject<UAbilityChainAsset>(InParent, InClass, InName, Flags);
+		AssetObj = NewObject<UAbilityChainAsset2>(InParent, InClass, InName, Flags);
 	}
 
 	return AssetObj;
@@ -46,12 +46,12 @@ bool UAbilityChainNodeAssetFactory::ConfigureProperties()
 	Options.ClassFilter = Filter;
 
 	Filter->DisallowedClassFlags = CLASS_Abstract | CLASS_Deprecated | CLASS_NewerVersionExists | CLASS_HideDropDown;
-	Filter->AllowedChildrenOfClasses.Add(UAbilityChainAsset::StaticClass());
+	Filter->AllowedChildrenOfClasses.Add(UAbilityChainAsset2::StaticClass());
 
 	const FText TitleText = FText::FromString(TEXT("Pick UTreeNodeAsset Class"));
 	UClass* ChosenClass = nullptr;
 	const bool bPressedOk = SClassPickerDialog::PickClass(TitleText, Options, ChosenClass,
-														  UAbilityChainAsset::StaticClass());
+														  UAbilityChainAsset2::StaticClass());
 
 	if (bPressedOk)
 	{

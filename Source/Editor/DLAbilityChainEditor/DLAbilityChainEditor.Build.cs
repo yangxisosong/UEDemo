@@ -31,7 +31,7 @@ public class DLAbilityChainEditor : ModuleRules
 
         // Project Module 
         PublicDependencyModuleNames.AddRange(new string[] {
-            "DLAbilitySystem"
+            //"DLAbilitySystem"
         });
 
         PrivateDependencyModuleNames.AddRange(new string[] {

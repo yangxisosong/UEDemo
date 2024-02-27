@@ -11,7 +11,7 @@
 #include "AbilityChainNodeEdGraphNode.h"
 #include "AbilityChainNodeEditorStyle.h"
 #include "Widgets/Text/SInlineEditableTextBlock.h"
-#include "GameAbilitySysDef.h"
+//#include "GameAbilitySysDef.h"
 
 #define LOCTEXT_NAMESPACE "BehaviorTreeEditor"
 
@@ -170,7 +170,7 @@ void SGraphNode_AbilityChainNode::UpdateSubNode()
 	const auto Node = Cast<UAbilityChainNodeEdGraphNode>(GetNodeObj());
 	if (Node)
 	{
-		this->Name = StaticEnum<EPrimaryInputID>()->GetDisplayNameTextByIndex(static_cast<int32>(Node->InputIDInfo));
+		this->Name = StaticEnum<EPrimaryInputID2>()->GetDisplayNameTextByIndex(static_cast<int32>(Node->InputIDInfo));
 
 		if (NodeTitleText.IsValid() && Node->NodeType != EAbilityChainNodeType::RootNode)
 		{
