@@ -95,13 +95,13 @@ void FPathControllerEditor::InitTargetSelectorEditor(const FInitArg& Arg)
 			(
 				FTabManager::NewPrimaryArea()
 				->SetOrientation(Orient_Vertical)
-				->Split
-				(
-					FTabManager::NewStack()
-					->SetSizeCoefficient(0.1f)
-					->SetHideTabWell(true)
-					->AddTab(GetToolbarTabId(), ETabState::OpenedTab)
-				)
+				//->Split
+				//(
+				//	FTabManager::NewStack()
+				//	->SetSizeCoefficient(0.1f)
+				//	->SetHideTabWell(true)
+				//	->AddTab(GetToolbarTabId(), ETabState::OpenedTab)
+				//)
 				->Split
 				(
 					FTabManager::NewSplitter()

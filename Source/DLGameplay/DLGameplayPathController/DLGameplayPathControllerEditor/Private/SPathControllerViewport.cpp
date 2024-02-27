@@ -25,51 +25,51 @@ public:
 			[
 				SNew(SBorder)
 				.BorderImage(FAppStyle::GetBrush("NoBorder"))
-			.ColorAndOpacity(this, &SViewportToolBar::GetColorAndOpacity)
-			.ForegroundColor(FAppStyle::GetSlateColor(DefaultForegroundName))
-			[
-				SNew(SHorizontalBox)
-				+ SHorizontalBox::Slot()
-			.AutoWidth()
-			.Padding(2.0f, 2.0f)
-			[
-				SNew(SEditorViewportToolbarMenu)
-				.ParentToolBar(SharedThis(this))
-			.Cursor(EMouseCursor::Default)
-			.Image("EditorViewportToolBar.MenuDropdown")
-			.OnGetMenuContent(this, &SEditorViewportToolBar::GeneratePreviewMenu)
-			]
-		+ SHorizontalBox::Slot()
-			.AutoWidth()
-			.Padding(2.0f, 2.0f)
-			[
-				SNew(SEditorViewportToolbarMenu)
-				.ParentToolBar(SharedThis(this))
-			.Cursor(EMouseCursor::Default)
-			.Label(this, &SEditorViewportToolBar::GetCameraMenuLabel)
-			.LabelIcon(this, &SEditorViewportToolBar::GetCameraMenuLabelIcon)
-			.OnGetMenuContent(this, &SEditorViewportToolBar::GenerateCameraMenu)
-			]
-		+ SHorizontalBox::Slot()
-			.AutoWidth()
-			.Padding(2.0f, 2.0f)
-			[
-				SNew(SEditorViewportToolbarMenu)
-				.ParentToolBar(SharedThis(this))
-			.Cursor(EMouseCursor::Default)
-			.Label(this, &SEditorViewportToolBar::GetViewMenuLabel)
-			.LabelIcon(this, &SEditorViewportToolBar::GetViewMenuLabelIcon)
-			.OnGetMenuContent(this, &SEditorViewportToolBar::GenerateViewMenu)
-			]
-		+ SHorizontalBox::Slot()
-			.Padding(3.0f, 1.0f)
-			.HAlign(HAlign_Right)
-			[
-				SNew(STransformViewportToolBar)
-				.Viewport(EditorViewport.Pin().ToSharedRef())
-			.CommandList(EditorViewport.Pin()->GetCommandList())
-			]
-			]
+				.ColorAndOpacity(this, &SViewportToolBar::GetColorAndOpacity)
+				.ForegroundColor(FAppStyle::GetSlateColor(DefaultForegroundName))
+				[
+					SNew(SHorizontalBox)
+					//+ SHorizontalBox::Slot()
+					//.AutoWidth()
+					//.Padding(2.0f, 2.0f)
+					//[
+					//	SNew(SEditorViewportToolbarMenu)
+					//	.ParentToolBar(SharedThis(this))
+					//	.Cursor(EMouseCursor::Default)
+					//	.Image("EditorViewportToolBar.MenuDropdown")
+					//	.OnGetMenuContent(this, &SEditorViewportToolBar::GeneratePreviewMenu)
+					//]
+					//+ SHorizontalBox::Slot()
+					//.AutoWidth()
+					//.Padding(2.0f, 2.0f)
+					//[
+					//	SNew(SEditorViewportToolbarMenu)
+					//	.ParentToolBar(SharedThis(this))
+					//	.Cursor(EMouseCursor::Default)
+					//	.Label(this, &SEditorViewportToolBar::GetCameraMenuLabel)
+					//	.LabelIcon(this, &SEditorViewportToolBar::GetCameraMenuLabelIcon)
+					//	.OnGetMenuContent(this, &SEditorViewportToolBar::GenerateCameraMenu)
+					//]
+					//+ SHorizontalBox::Slot()
+					//.AutoWidth()
+					//.Padding(2.0f, 2.0f)
+					//[
+					//	SNew(SEditorViewportToolbarMenu)
+					//	.ParentToolBar(SharedThis(this))
+					//	.Cursor(EMouseCursor::Default)
+					//	.Label(this, &SEditorViewportToolBar::GetViewMenuLabel)
+					//	.LabelIcon(this, &SEditorViewportToolBar::GetViewMenuLabelIcon)
+					//	.OnGetMenuContent(this, &SEditorViewportToolBar::GenerateViewMenu)
+					//]
+					/*+ SHorizontalBox::Slot()
+					.Padding(3.0f, 1.0f)
+					.HAlign(HAlign_Right)
+					[
+						SNew(STransformViewportToolBar)
+						.Viewport(EditorViewport.Pin().ToSharedRef())
+						.CommandList(EditorViewport.Pin()->GetCommandList())
+					]*/
+				]
 			];
 
 		SViewportToolBar::Construct(SViewportToolBar::FArguments());

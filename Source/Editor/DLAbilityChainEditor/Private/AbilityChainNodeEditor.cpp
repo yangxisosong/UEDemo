@@ -152,16 +152,16 @@ void FAbilityChainNodeEditor::InitTreeNodeEditor(const FInitArg& Arg)
 		const TSharedRef<FTabManager::FLayout> Layout = FTabManager::NewLayout("Standalone_CustomizeAbilityChainNodeEditor")
 			->AddArea
 			(
-				FTabManager::NewPrimaryArea()->SetOrientation(Orient_Vertical)
-				                             ->Split
-				                             (
-					                             FTabManager::NewStack()
-					                             ->AddTab(GetToolbarTabId(), ETabState::OpenedTab)->SetHideTabWell(true)
-				                             )
+				FTabManager::NewPrimaryArea()->SetOrientation(Orient_Horizontal)
+				                             //->Split
+				                             //(
+					                            // FTabManager::NewStack()
+					                            // ->AddTab(GetToolbarTabId(), ETabState::OpenedTab)->SetHideTabWell(false)
+				                             //)
 				                             ->Split
 				                             (
 					                             FTabManager::NewSplitter()
-					                             ->SetOrientation(Orient_Horizontal)->SetSizeCoefficient(0.9f)
+					                             ->SetOrientation(Orient_Horizontal)->SetSizeCoefficient(1.0f)
 					                             ->Split
 					                             (
 						                             FTabManager::NewStack()
