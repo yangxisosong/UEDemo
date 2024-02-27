@@ -62,8 +62,8 @@ TSharedRef<FSlateStyleSet> FAbilityChainNodeEditorStyle::Create()
 	Style->Set("AbilityChainNodeEditorStyle.NodeIcon", new IMAGE_BRUSH(TEXT("node-red"), Icon40x40));
 	Style->Set("AbilityChainNodeEditorStyle.FindNode", new IMAGE_BRUSH(TEXT("find"), Icon40x40));
 
-	Style->Set("ClassIcon.AbilityChainAsset", new IMAGE_BRUSH(TEXT("node-red"), Icon16x16));
-	Style->Set("ClassThumbnail.AbilityChainAsset", new IMAGE_BRUSH(TEXT("node-red"), Icon128x128));
+	Style->Set("ClassIcon.AbilityChainAsset2", new IMAGE_BRUSH(TEXT("node-red"), Icon16x16));
+	Style->Set("ClassThumbnail.AbilityChainAsset2", new IMAGE_BRUSH(TEXT("node-red"), Icon128x128));
 
 	return Style;
 }

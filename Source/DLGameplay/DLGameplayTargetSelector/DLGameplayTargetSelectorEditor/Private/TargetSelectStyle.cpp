@@ -38,9 +38,11 @@ void FTargetSelectStyle::Initialize()
 	}
 
 	StyleSetInstance = MakeShareable(new FSlateStyleSet(GetStyleSetName()));
-	StyleSetInstance->SetContentRoot(FPaths::EngineContentDir() / TEXT("Editor/Slate"));
-	StyleSetInstance->SetCoreContentRoot(FPaths::EngineContentDir() / TEXT("Slate"));
-
+	//StyleSetInstance->SetContentRoot(FPaths::EngineContentDir() / TEXT("Editor/Slate"));
+	//StyleSetInstance->SetCoreContentRoot(FPaths::EngineContentDir() / TEXT("Slate"));
+	
+	StyleSetInstance->SetContentRoot(FPaths::ProjectDir() / TEXT("Resources"));
+	StyleSetInstance->SetCoreContentRoot(FPaths::ProjectDir() / TEXT("Resources"));
 	SetIcons();
 
 	FSlateStyleRegistry::RegisterSlateStyle(*StyleSetInstance.Get());
