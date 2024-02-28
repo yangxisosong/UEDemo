@@ -15,12 +15,24 @@ public class DLDebugObjMethodsExecutorEditor : ModuleRules
             "Core",
             "CoreUObject",
             "Engine",
-            "GameplayTags"
+            "GameplayTags",
+            "Slate",
+            "SlateCore",
+            "UnrealEd",
+            "LevelEditor",
+            "Projects",
+            "EditorStyle",
+            "WorldBrowser",
+            "InputCore",
+            "UMG",
+            "PropertyEditor",
+            "Kismet"
         });
 
         // Project Module 
         PublicDependencyModuleNames.AddRange(new string[] {
-           
+           "DLDebugObjMethodsExecutor",
+           "DLGameplayPathController"
         });
     }
 }

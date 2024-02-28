@@ -38,6 +38,16 @@
 			"Name": "DLGameplayPathController",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "DLDebugObjMethodsExecutor",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "DLDebugObjMethodsExecutorEditor",
+			"Type": "Editor",
+			"LoadingPhase": "Default"
 		}
 	]
 }

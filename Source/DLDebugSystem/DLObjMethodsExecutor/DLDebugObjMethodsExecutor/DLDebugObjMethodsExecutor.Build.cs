@@ -15,7 +15,6 @@ public class DLDebugObjMethodsExecutor : ModuleRules
             "Core",
             "CoreUObject",
             "Engine",
-            "GameplayTags"
         });
 
         // Project Module 
