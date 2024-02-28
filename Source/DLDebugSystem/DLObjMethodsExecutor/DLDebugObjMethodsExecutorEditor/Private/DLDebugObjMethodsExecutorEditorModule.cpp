@@ -27,17 +27,21 @@ void FDLDebugObjMethodsExecutorModule::StartupModule()
 		FCanExecuteAction());
 
 
-	const TSharedPtr<FExtender> ToolbarExtender = MakeShareable(new FExtender);
+	/*const TSharedPtr<FExtender> ToolbarExtender = MakeShareable(new FExtender);
 
-	ToolbarExtender->AddToolBarExtension("Settings", EExtensionHook::After, EditorCommands,
+	ToolbarExtender->AddToolBarExtension("LevelEditor.MainMenu", EExtensionHook::After, EditorCommands,
 	                                     FToolBarExtensionDelegate::CreateRaw(
 		                                     this, &FDLDebugObjMethodsExecutorModule::AddToolbarExtension));
 
 	FLevelEditorModule& LevelEditorModule = FModuleManager::LoadModuleChecked<FLevelEditorModule>("LevelEditor");
-	LevelEditorModule.GetToolBarExtensibilityManager()->AddExtender(ToolbarExtender);
+	LevelEditorModule.GetToolBarExtensibilityManager()->AddExtender(ToolbarExtender);*/
 
 	FPropertyEditorModule& PropertyEditorModule = FModuleManager::LoadModuleChecked<FPropertyEditorModule>("PropertyEditor");
 
+	UToolMenu* Menu = UToolMenus::Get()->ExtendMenu("LevelEditor.MainMenu");
+	UToolMenu* DLToolsMenu = Menu->AddSubMenu(FToolMenuOwner(Menu->GetFName()), FName("DLDebug"), FName("DLDebug"), FText::FromString("DLDebug"));
+	FToolMenuSection& Section = DLToolsMenu->FindOrAddSection("DLDebug");
+	Section.AddMenuEntryWithCommandList(FDLDebugObjEditorCommands::Get().OpenDebugWindow, EditorCommands);
 	//PropertyEditorModule.RegisterCustomPropertyTypeLayout(FName("DetailInfo"),
 	//	FOnGetPropertyTypeCustomizationInstance::CreateStatic(&FDLCustomizationProperty::MakeInstance));
 

@@ -26,7 +26,8 @@ public class DLDebugObjMethodsExecutorEditor : ModuleRules
             "InputCore",
             "UMG",
             "PropertyEditor",
-            "Kismet"
+            "Kismet",
+            "ToolMenus",
         });
 
         // Project Module 
