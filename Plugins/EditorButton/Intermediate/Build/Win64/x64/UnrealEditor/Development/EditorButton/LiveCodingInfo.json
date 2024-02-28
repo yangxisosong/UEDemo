@@ -1,0 +1,10 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.EditorButton.cpp.obj": [
+			"EditorButton.cpp.obj",
+			"EditorButtonCommands.cpp.obj",
+			"EditorButtonStyle.cpp.obj"
+		]
+	}
+}
