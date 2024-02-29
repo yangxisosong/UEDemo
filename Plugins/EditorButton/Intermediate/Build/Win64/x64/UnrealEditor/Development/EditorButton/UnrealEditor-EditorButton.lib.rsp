@@ -6,7 +6,7 @@
 /NAME:"UnrealEditor-EditorButton.dll"
 /IGNORE:4221
 /NODEFAULTLIB
-"F:\UEProject\uetest-demo\Intermediate\Build\Win64\x64\CustomWidgetEditor\Development\UnrealEd\SharedPCH.UnrealEd.Cpp17.InclOrderUnreal5_0.h.obj"
-"F:\UEProject\uetest-demo\Plugins\EditorButton\Intermediate\Build\Win64\x64\UnrealEditor\Development\EditorButton\Module.EditorButton.cpp.obj"
-"F:\UEProject\uetest-demo\Plugins\EditorButton\Intermediate\Build\Win64\x64\UnrealEditor\Development\EditorButton\Default.rc2.res"
-/OUT:"F:\UEProject\uetest-demo\Plugins\EditorButton\Intermediate\Build\Win64\x64\UnrealEditor\Development\EditorButton\UnrealEditor-EditorButton.lib"
+"E:\Work\uetest-demo\Intermediate\Build\Win64\x64\CustomWidgetEditor\Development\UnrealEd\SharedPCH.UnrealEd.Cpp17.InclOrderUnreal5_0.h.obj"
+"E:\Work\uetest-demo\Plugins\EditorButton\Intermediate\Build\Win64\x64\UnrealEditor\Development\EditorButton\Module.EditorButton.cpp.obj"
+"E:\Work\uetest-demo\Plugins\EditorButton\Intermediate\Build\Win64\x64\UnrealEditor\Development\EditorButton\Default.rc2.res"
+/OUT:"E:\Work\uetest-demo\Plugins\EditorButton\Intermediate\Build\Win64\x64\UnrealEditor\Development\EditorButton\UnrealEditor-EditorButton.lib"

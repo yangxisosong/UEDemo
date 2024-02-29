@@ -18,6 +18,7 @@ public class GameTest : ModuleRules
             "Blutility",
             "UMG",
             "UnrealEd",
+            "InputCore",
         });
 
         // Project Module 
