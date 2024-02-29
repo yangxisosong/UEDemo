@@ -71,8 +71,6 @@ void FDLDebugObjMethodsExecutorModule::OpenDebugTabButtonClicked() const
 	if (DLDebugEditor.IsValid())
 	{
 		DLDebugEditor.Get()->CreatNewTab();
-
-
 	}
 }
 
