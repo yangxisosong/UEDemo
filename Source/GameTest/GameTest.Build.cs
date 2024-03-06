@@ -19,6 +19,7 @@ public class GameTest : ModuleRules
             "UMG",
             "UnrealEd",
             "InputCore",
+            "EnhancedInput"
         });
 
         // Project Module 

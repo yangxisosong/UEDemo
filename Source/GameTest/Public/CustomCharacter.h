@@ -13,7 +13,7 @@ public:
 	virtual void Tick(float DeltaSeconds) override;
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-private:
+public:
 	// 处理用于前后移动的输入。
 	UFUNCTION()
 		void MoveForward(float Value);

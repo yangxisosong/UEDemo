@@ -20,7 +20,7 @@
 /ALTERNATENAME:__imp___std_init_once_complete=__imp_InitOnceComplete
 /DELAYLOAD:"d3d12.dll"
 /DELAYLOAD:"DBGHELP.DLL"
-/LIBPATH:"D:\Work\VisualStudio2022\VC\Tools\MSVC\14.36.32532\lib\x64"
+/LIBPATH:"D:\Work\vs2022IDE\VC\Tools\MSVC\14.36.32532\lib\x64"
 /LIBPATH:"C:\Program Files (x86)\Windows Kits\10\lib\10.0.22621.0\ucrt\x64"
 /LIBPATH:"C:\Program Files (x86)\Windows Kits\10\lib\10.0.22621.0\um\x64"
 /NODEFAULTLIB:"LIBCMT"
@@ -34,9 +34,9 @@
 /NODEFAULTLIB:"LIBCD"
 /NODEFAULTLIB:"LIBCPD"
 /FUNCTIONPADMIN:6
-"E:\Work\uetest-demo\Intermediate\Build\Win64\x64\CustomWidgetEditor\Development\UnrealEd\SharedPCH.UnrealEd.Cpp17.InclOrderUnreal5_0.h.obj"
-"E:\Work\uetest-demo\Plugins\EditorButton\Intermediate\Build\Win64\x64\UnrealEditor\Development\EditorButton\Module.EditorButton.cpp.obj"
-"E:\Work\uetest-demo\Plugins\EditorButton\Intermediate\Build\Win64\x64\UnrealEditor\Development\EditorButton\Default.rc2.res"
+"F:\UEProject\uetest-demo\Intermediate\Build\Win64\x64\CustomWidgetEditor\Development\UnrealEd\SharedPCH.UnrealEd.Cpp17.InclOrderUnreal5_0.h.obj"
+"F:\UEProject\uetest-demo\Plugins\EditorButton\Intermediate\Build\Win64\x64\UnrealEditor\Development\EditorButton\Module.EditorButton.cpp.obj"
+"F:\UEProject\uetest-demo\Plugins\EditorButton\Intermediate\Build\Win64\x64\UnrealEditor\Development\EditorButton\Default.rc2.res"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Projects\UnrealEditor-Projects.lib"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\InputCore\UnrealEditor-InputCore.lib"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\EditorFramework\UnrealEditor-EditorFramework.lib"
@@ -72,7 +72,7 @@
 "synchronization.lib"
 "dwmapi.lib"
 "imm32.lib"
-/OUT:"E:\Work\uetest-demo\Plugins\EditorButton\Binaries\Win64\UnrealEditor-EditorButton.dll"
-/IMPLIB:"E:\Work\uetest-demo\Plugins\EditorButton\Intermediate\Build\Win64\x64\UnrealEditor\Development\EditorButton\UnrealEditor-EditorButton.sup.lib"
-/PDB:"E:\Work\uetest-demo\Plugins\EditorButton\Binaries\Win64\UnrealEditor-EditorButton.pdb"
+/OUT:"F:\UEProject\uetest-demo\Plugins\EditorButton\Binaries\Win64\UnrealEditor-EditorButton.dll"
+/IMPLIB:"F:\UEProject\uetest-demo\Plugins\EditorButton\Intermediate\Build\Win64\x64\UnrealEditor\Development\EditorButton\UnrealEditor-EditorButton.sup.lib"
+/PDB:"F:\UEProject\uetest-demo\Plugins\EditorButton\Binaries\Win64\UnrealEditor-EditorButton.pdb"
 /ignore:4078

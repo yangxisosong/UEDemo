@@ -5,9 +5,9 @@
 ACustomCharacter::ACustomCharacter(const FObjectInitializer& ObjectInitializer)
 	:Super(ObjectInitializer)
 {
-	bUseControllerRotationPitch = false;
-	bUseControllerRotationYaw = false;
-	bUseControllerRotationRoll = false;
+	//bUseControllerRotationPitch = true;
+	//bUseControllerRotationYaw = true;
+	//bUseControllerRotationRoll = true;
 	UE_LOG(LogTemp, Warning, TEXT("ACustomCharacter Construct"));
 }
 
@@ -57,11 +57,18 @@ void ACustomCharacter::MoveForward(float Value)
 		UE_LOG(LogTemp, Warning, TEXT("cos: %f"), cos);
 		if(FMath::Abs(cos) >0.95)
 		{
-			Cast<UCharacterMovementComponent>(GetMovementComponent())->MaxWalkSpeed=100;
+			if (Cast<UCharacterMovementComponent>(GetMovementComponent()))
+			{
+				Cast<UCharacterMovementComponent>(GetMovementComponent())->MaxWalkSpeed = 100;
+			}
+
 		}
 		else
 		{
-			Cast<UCharacterMovementComponent>(GetMovementComponent())->MaxWalkSpeed = 10;
+			if (Cast<UCharacterMovementComponent>(GetMovementComponent()))
+			{
+				Cast<UCharacterMovementComponent>(GetMovementComponent())->MaxWalkSpeed = 10;
+			}
 		}
 		AddMovementInput(Direction, Value);
 
@@ -91,11 +98,18 @@ void ACustomCharacter::MoveRight(float Value)
 		UE_LOG(LogTemp, Warning, TEXT("cos: %f"), cos);
 		if (FMath::Abs(cos) > 0.95)
 		{
-			Cast<UCharacterMovementComponent>(GetMovementComponent())->MaxWalkSpeed = 100;
+			if (Cast<UCharacterMovementComponent>(GetMovementComponent()))
+			{
+				Cast<UCharacterMovementComponent>(GetMovementComponent())->MaxWalkSpeed = 100;
+			}
+
 		}
 		else
 		{
-			Cast<UCharacterMovementComponent>(GetMovementComponent())->MaxWalkSpeed = 10;
+			if (Cast<UCharacterMovementComponent>(GetMovementComponent()))
+			{
+				Cast<UCharacterMovementComponent>(GetMovementComponent())->MaxWalkSpeed = 10;
+			}
 		}
 		AddMovementInput(Direction, Value);
 

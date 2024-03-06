@@ -1,5 +1,5 @@
 #include "CustomPawn.h"
-
+#include "EnhancedInputComponent.h"
 #include "GameFramework/FloatingPawnMovement.h"
 
 ACustomPawn::ACustomPawn(const FObjectInitializer& ObjectInitializer)
@@ -105,6 +105,11 @@ UPawnMovementComponent* ACustomPawn::GetMovementComponent() const
 void ACustomPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
+
+	auto InputCom = Cast<UEnhancedInputComponent>(PlayerInputComponent);
+	if (InputCom)
+	{
+	}
 
 	// 设置"移动"绑定。
 	PlayerInputComponent->BindAxis("MoveForward", this, &ACustomPawn::MoveForward);
