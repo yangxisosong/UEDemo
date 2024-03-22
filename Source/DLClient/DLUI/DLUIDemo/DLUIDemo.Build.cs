@@ -19,7 +19,8 @@ public class DLUIDemo : ModuleRules
             "GameplayTags",
             "UMG",
             "GameplayAbilities",
-            "InputCore"
+            "InputCore",
+            "GameplayTasks"
         });
 
         // Project Module 
